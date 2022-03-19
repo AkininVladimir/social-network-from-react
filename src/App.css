@@ -3,9 +3,9 @@
   grid-template-areas:
     "header header header"
     "nav-bar cont cont";
-  grid-template-rows: 220px 12fr;
+  grid-template-rows: 200px 12fr;
   grid-template-columns: 2fr 10fr;
-  grid-gap: 2px;
+  grid-gap: 1px;
 }
 
 .app-wrapper-content {
