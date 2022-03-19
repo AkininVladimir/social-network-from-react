@@ -1,0 +1,21 @@
+.app-wrapper {
+  display: grid;
+  grid-template-areas:
+    "header header header"
+    "nav-bar cont cont";
+  grid-template-rows: 220px 12fr;
+  grid-template-columns: 2fr 10fr;
+  grid-gap: 2px;
+}
+
+.app-wrapper-content {
+  grid-area: cont;
+  background: url('http://ulkatech.com/images/slides/slide1.jpg') center center/cover no-repeat;
+  color: black;
+}
+
+
+
+
+
+

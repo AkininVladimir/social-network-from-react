@@ -1,0 +1,16 @@
+.Navbar {
+    grid-area: nav-bar;
+    background-color: #ffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    flex-basis: 40%;
+    flex-grow: 1;
+}
+
+
+    .item a {
+        color: #e0088d;
+        text-decoration: none;
+    }
