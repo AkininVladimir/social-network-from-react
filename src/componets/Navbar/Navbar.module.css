@@ -1,19 +1,25 @@
 .Navbar {
     grid-area: nav-bar;
     background-color: #ffff;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    column-gap: 10px;
+    row-gap: 1em;
+    align-self: start;
+    justify-self: center;
+
+
 }
 
 .item {
+
     display: block;
-    width: 200px;
-    height: 60px;
+    width: 125px;
+    height: 40px;
+    padding-top:5px;
     text-align: center;
-    font-size: 24px;
     text-transform: uppercase;
+    font-size: 17px;
     text-decoration: none;
     background: linear-gradient(90deg, #ee9fdd, #f441a5, #ce47ac, #cd8245);
     background-size: 100%;
