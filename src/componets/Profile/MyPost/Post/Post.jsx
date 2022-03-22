@@ -1,15 +1,18 @@
 import React from 'react';
 import classes from './Post.module.css';
 
+const CommentRow = (props) => {
+ return (
+     <div className={classes.item}> {props.ava_g}
+     </div>
+ );
+}
+
 const Post = (props) => {
 
     return (
-        <div className={classes.item}> 
-            <img src="https://vraki.net/sites/default/files/inline/images/10_342.jpg" alt="" />
-            {props.message}
-           <span> 
-           {props.value}
-           </span>
+        <div className={classes.item}>
+            <CommentRow ava_g = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKUEphsBwnICXoMkyaNmtA23YHG0ClTynYIg&usqp=CAU"/>
         </div>
     );
 }
