@@ -1,13 +1,87 @@
-  .item {
-    color:black;
-    width: 30%;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+.PostCommit {
+    color: black;
+    width: 70%;
+    height: auto;
+
+}
+
+.CommentRow {
+    display: grid;
+    grid-template-areas:
+    "AV CT CT CT"
+    "AV BI CF CF";
+    grid-auto-rows: minmax(50px, auto);
+    box-shadow: 0 0 5px 0 rgba(2, 204, 238, .3);
+    border-radius: 10px 10px 10px 0px;
+    background: rgba(198, 203, 233, 0.6);
+}
+
+.AvaCircle {
+    grid-area: AV;
+    grid-column: 1;
+    grid-row: 1 / 2;
+    margin: 0 auto;
+}
+
+.AvaCircle img {
+    width: 100px;
     height: 100px;
-    display:flex;
-    justify-content: space-around;
-    align-items: center;
-  }
-  .item img {
-    width: 80px;
-    height: 80px;
     border-radius: 100%;
-  }
+}
+.FontMedium {
+    font-size: large;
+
+}
+.CommentText {
+    grid-area: CT;
+    grid-column: 2/5;
+    grid-row: 1;
+}
+
+.BtnItems {
+    display: flex;
+    justify-content: space-evenly;
+    grid-area: BI;
+    grid-column: 2;
+    grid-row: 2/3;
+}
+
+.BtnEdit {
+    width: 70px;
+    height: 25px;
+    color: #fff;
+    background-color: #efa1de;
+    box-shadow: 0 0 5px 0 rgb(240, 130, 203);
+    border-radius: 5px;
+}
+
+.BtnPublish {
+    width: 70px;
+    height: 25px;
+    color: #fff;
+    background-color: #d4165b;
+    box-shadow: 0 0 5px 0 rgb(240, 130, 203);
+    border-radius: 5px
+}
+
+.BtnDelet {
+    width: 70px;
+    height: 25px;
+    color: #fff;
+    background-color: #ce8446;
+    box-shadow: 0 0 5px 0 rgb(240, 130, 203);
+    border-radius: 5px
+
+}
+
+.CommentFooter {
+    grid-area: CF;
+    grid-column: 4/5;
+}

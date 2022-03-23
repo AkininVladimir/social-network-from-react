@@ -1,5 +1,36 @@
-textarea {
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.ProfWrapp {
+    width: 50%;
+    height: auto;
+}
+.ProfInfo {
+    display: grid;
+    grid-template-areas:
+    "AV CT CT CT"
+    "AV BI CF CF";
+    grid-auto-rows: minmax(50px, auto);
+
+}
+
+.ProfAva img{
     width: 200px;
-    height: 100px;
-  }
-  
+    height: 200px;
+border-radius:100%;
+}
+
+.BtnEdit {
+    width: 100px;
+    height: 30px;
+    color: #fff;
+    background-color: #efa1de;
+    box-shadow: 0 0 5px 0 rgb(240, 130, 203);
+    border-radius: 5px;
+}
+.About {
+    display: block;
+    justify-content: center;
+}
