@@ -2,22 +2,21 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
 }
 
 .PostCommit {
     color: black;
     width: 70%;
     height: auto;
-
 }
 
 .CommentRow {
+    padding-top: 10px;
     display: grid;
     grid-template-areas:
     "AV CT CT CT"
     "AV BI CF CF";
-    grid-auto-rows: minmax(50px, auto);
+    grid-template-rows: minmax(100px, auto);
     box-shadow: 0 0 5px 0 rgba(2, 204, 238, .3);
     border-radius: 10px 10px 10px 0px;
     background: rgba(198, 203, 233, 0.6);
@@ -35,10 +34,12 @@
     height: 100px;
     border-radius: 100%;
 }
+
 .FontMedium {
     font-size: large;
 
 }
+
 .CommentText {
     grid-area: CT;
     grid-column: 2/5;
@@ -48,36 +49,39 @@
 .BtnItems {
     display: flex;
     justify-content: space-evenly;
+    text-align: center;
     grid-area: BI;
     grid-column: 2;
     grid-row: 2/3;
 }
 
-.BtnEdit {
-    width: 70px;
-    height: 25px;
-    color: #fff;
-    background-color: #efa1de;
-    box-shadow: 0 0 5px 0 rgb(240, 130, 203);
-    border-radius: 5px;
+.Like, .DisLike {
+    width: 100px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
-.BtnPublish {
-    width: 70px;
-    height: 25px;
+.BtnGood {
+    display: block;
+    align-items: start;
+    width: 50px;
+    height: 50px;
     color: #fff;
-    background-color: #d4165b;
+    background-color: chartreuse;
     box-shadow: 0 0 5px 0 rgb(240, 130, 203);
-    border-radius: 5px
+    border-radius: 100%;
 }
 
-.BtnDelet {
-    width: 70px;
-    height: 25px;
+.BtnNoGood {
+    display: block;
+    align-items: start;
+    width: 50px;
+    height: 50px;
     color: #fff;
-    background-color: #ce8446;
+    background-color: red;
     box-shadow: 0 0 5px 0 rgb(240, 130, 203);
-    border-radius: 5px
+    border-radius: 100%;
 
 }
 
