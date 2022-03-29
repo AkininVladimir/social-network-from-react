@@ -1,0 +1,97 @@
+
+.ProfileBlock {
+    margin-top: 10px;
+    height: 510px;
+    width: 70%;
+}
+.AddButton .icon {
+    float: right;
+    line-height: 18px;
+    width: 23px;
+    border: 2px solid;
+    border-radius: 100%;
+    font-size: 18px;
+    text-align: center;
+    margin: 10px;
+}
+.AddButton .icon:hover {
+    color: #e64c65;
+    border-color: #e64c65;
+}
+.ProfilePicture {
+    margin: 0 auto;
+    border: 5px solid #50597b;
+    border-radius: 100%;
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ProfilePicture img{
+    height: 100%;
+    width: auto;
+}
+
+.UserName {
+    margin: 25px 0 16px;
+    text-align: center;
+}
+.ProfileDescription {
+    width: 210px;
+    margin: 0 auto;
+    text-align: center;
+}
+.ProfileOptions {
+    padding-top: 23px;
+    display: flex;
+    justify-content: center;
+
+}
+.ProfileOptions p {
+    margin: 0;
+}
+.ProfileOptions a {
+    display: block;
+    width: 99px;
+    line-height: 60px;
+    text-align: center;
+    -webkit-transition: background .3s;
+    transition: background .3s;
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+}
+
+.ProfileOptions a:hover {
+    text-decoration: none;
+    color: #ffffff;
+    text-decoration: none;
+    background: #d4165b;
+    border-radius: 30px;
+}
+
+.ProfileOptions.Comments{
+    border-top: 4px solid #fcb150;
+    border-left: 1px solid #1f253d;
+}
+.ProfileOptions.Views {
+    border-top: 4px solid #11a8ab;
+    border-left: 1px solid #1f253d;
+}
+
+.ProfileOptions.Likes {
+    border-top: 4px solid #e64c65;
+    border-left: 1px solid #1f253d;
+}
+
+.ProfileOptions a:hover.IconComments {
+    color: #fcb150;
+}
+.ProfileOptions a:hover.IconViews {
+    color: #11a8ab;
+}
+.ProfileOptions a:hover.IconLikes {
+    color: #e64c65;
+}

@@ -2,116 +2,17 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
 }
 
 .Dialog_wrapper {
     display: grid;
-    column-gap: 20px;
-    row-gap: 10px;
+    grid-template-areas:
+    "A A A A   A A A A   A A A A"
+    "B B B B   C C C C   C C C C"
+    "B B B B   C C C C   C C C C";
     background: rgba(255, 255, 255, 0.05);
-    width: 100%;
-    height: 100%;
     border-radius: 0.2em;
     box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.1);
 }
 
-.Header {
-    grid-column-start: 1;
-    grid-column-end: 4;
-    grid-row-start: 1;
-    grid-row-end: 2;
-    width: auto;
-    height: 60px;
-    border-radius: 10px;
-    box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.3);
 
-}
-
-.Header input {
-    margin:20px 20px 0 20px;
-    width: 25%;
-    height: 30px;
-    line-height: 50px;
-    padding: 10px 50px 0 20px;
-    background: rgba(255, 255, 255, 0.05);
-    box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.3);
-    border: none;
-    border-radius: 3px;
-    color: #fff;
-    background-image:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1940306/ico_search.png) left /no-repit;
-}
-
-.Header input::placeholder {
-    color: #1d1e22;
-}
-
-.User_List {
-    grid-column-start: 1;
-    grid-column-end: 2;
-    grid-row-start: 2;
-    grid-row-end: 3;
-    display: grid;
-    column-gap: 30px;
-    row-gap: 10px;
-    width: auto;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.3);
-
-}
-
-.User_List_Item {
-    display: flex;
-    margin-left: 10px;
-    justify-content: start;
-    align-items: center;
-    width: 50vh;
-    height:60px;
-    background-color: #fff;
-    border: 1px solid #e6e6e6;
-    box-shadow: 0 0 5px 0 rgba(0, 0, 0, .2);
-    border-radius: 20px;
-
-}
-.User_List_Item a{
-    text-decoration: none;
-}
-
-.User_List_Item img {
-    width: 50px;
-    height: 50px;
-    border-radius: 100%;
-    background: hotpink;
-    text-decoration: none;
-}
-
-.Message {
-    width: auto;
-    height: auto;
-    grid-column-start: 2;
-    grid-column-end: 4;
-    grid-row-start: 2;
-    grid-row-end: 4;
-    display: grid;
-    column-gap: 10px;
-    row-gap: 10px;
-    border-radius: 10px;
-    background: rgba(3, 169, 244, 0.24);
-    box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.1);
-
-}
-
-.Message_item {
-    margin: 20px 0 0 20px;
-    width: 60%;;
-    min-height:20px;
-    text-align: -webkit-left;
-    word-break: keep-all;
-    box-shadow: 0 0 5px 0 rgba(0, 0, 0, .2);
-    border-radius: 10px 10px 10px 0px;
-    background: white;
-    bottom: 0;
-    transition: .1s ease-out;
-
-}
