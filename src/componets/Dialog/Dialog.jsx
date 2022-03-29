@@ -27,13 +27,13 @@ const Dialog = (props) => {
     //     <DialogItems name={dialogData[5].name} id={dialogData[5].id}/>
     // ]
 
-    let massegeData = [
+    /*let massegeData = [
         {id: 1, massege: 'Привет! Как Дела? Как твои уроки по Уроки React JS'},
         {id: 2, massege: 'Я рад и мне очень весело'},
         {id: 3, massege: 'Все круто!'}
-    ]
+    ]*/
 
-    let massegeElements = massegeData.map(m => <MassegeItems text={m.massege} id={m.id}/>)
+    let massegeElements = props.massege.map(m => <MassegeItems text={m.massege} id={m.id}/>)
     /*[
     <MessageItems text={massegeData[0].massege} id={massegeData[0].id}/>,
     <MessageItems text={massegeData[1].massege} id={massegeData[1].id}/>,

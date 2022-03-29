@@ -12,12 +12,13 @@
   grid-template-rows: 200px 12fr;
   grid-template-columns: 2fr 10fr;
   grid-gap: 4px;
+
 }
 
 .app-wrapper-content {
   grid-area: cont;
-  background: url('https://mykaleidoscope.ru/uploads/posts/2020-03/1583354205_11-p-amerikanskie-ponchiki-23.jpg') center center/cover no-repeat hsla(0, 0%, 100%, 2);
   color: black;
+
   }
 
 

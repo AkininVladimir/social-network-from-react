@@ -8,7 +8,7 @@ const DialogItems = (props) => {
         <div className={classes.UserListWrapper}>
             <div className={classes.UserListItem}>
                 <img src="#" alt=""/>
-                <NavLink to={path}>{props.name}</NavLink> {/*Дублирующийся блок*/}
+                <NavLink to={path}><p>{props.name}</p></NavLink> {/*Дублирующийся блок*/}
             </div>
         </div>
 

@@ -42,9 +42,15 @@ let dialogData = [
     {id: 6, name: 'Юля'},
 ]
 
+let massegeData = [
+    {id: 1, massege: 'Привет! Как Дела? Как твои уроки по Уроки React JS'},
+    {id: 2, massege: 'Я рад и мне очень весело'},
+    {id: 3, massege: 'Все круто!'}
+]
+
 ReactDOM.render(
     <React.StrictMode>
-        <App posts = {postData} dialog={dialogData} />
+        <App posts = {postData} dialog={dialogData} massege={massegeData} />
     </React.StrictMode>,
     document.getElementById('root')
 );
