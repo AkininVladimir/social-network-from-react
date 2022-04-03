@@ -1,13 +1,13 @@
 import React from 'react';
+import classes from './Profile.module.css';
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import MyPost from "./MyPost/MyPost";
-import Post from "./MyPost/Post/Post";
 
 const Profile = (props) => {
     return (
-        <div>
+        <div className={classes.PofileWrapper}>
             <ProfileInfo/>
-            <MyPost posts={props.posts}/>
+            <MyPost post = {props.PostState}/>
         </div>
     );
 }

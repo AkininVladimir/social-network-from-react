@@ -1,12 +1,13 @@
 
-.UserListWrapper {
-grid-area: B;
-}
-
 .UserListItem {
-    background: rgba(255, 255, 255, 0.05);
-    width: 100%;
-    height: 40px;
+    display: grid;
+    grid-area: B;
+    margin-top: 10px;
+    text-align: center;
+    background: rgba(198, 203, 233, 0.6);
     border-radius: 0.2em;
     box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.1);
+}
+.UserListItem a {
+    text-decoration: none;
 }

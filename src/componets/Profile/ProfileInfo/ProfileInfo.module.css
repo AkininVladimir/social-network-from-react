@@ -1,7 +1,7 @@
 
 .ProfileBlock {
     margin-top: 10px;
-    height: 510px;
+    min-height: 300px;
     width: 70%;
 }
 .AddButton .icon {
@@ -22,8 +22,8 @@
     margin: 0 auto;
     border: 5px solid #50597b;
     border-radius: 100%;
-    width: 300px;
-    height: 300px;
+    width: 150px;
+    height: 150px;
     overflow: hidden;
     display: flex;
     justify-content: center;

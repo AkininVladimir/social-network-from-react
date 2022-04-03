@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import State from "./redux/state";
 
-let postData = [
+/*let postData = [
     {
         id: 1,
         name: 'Алексей Новальный',
@@ -37,20 +38,19 @@ let dialogData = [
     {id: 3, name: 'Алексей'},
     {id: 4, name: 'Инна'},
     {id: 5, name: 'Василий'},
-    {id: 6, name: 'Юля'},
-    {id: 6, name: 'Юля'},
-    {id: 6, name: 'Юля'},
+    {id: 6, name: 'Юля'}
+
 ]
 
 let massegeData = [
     {id: 1, massege: 'Привет! Как Дела? Как твои уроки по Уроки React JS'},
     {id: 2, massege: 'Я рад и мне очень весело'},
     {id: 3, massege: 'Все круто!'}
-]
+]*/
 
 ReactDOM.render(
     <React.StrictMode>
-        <App posts = {postData} dialog={dialogData} massege={massegeData} />
+        <App appState = {State}/>
     </React.StrictMode>,
     document.getElementById('root')
 );

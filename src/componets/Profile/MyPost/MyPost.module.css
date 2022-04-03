@@ -1,2 +1,54 @@
+.MypostWrapper {
+    width: auto;
+}
 
+.CommentsFormBlock {
+    width: 70%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
 
+.CommentsAvatar {
+    border: 5px solid #50597b;
+    border-radius: 100%;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.CommentsAvatar img {
+    height: 100%;
+    width: 100%;
+}
+
+.FormBlock {
+    width: 100%;
+}
+
+.CommentsText {
+    width: 100%;
+    max-height: 50px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+}
+
+.CommentsButton {
+    cursor: pointer;
+    position: relative;
+    display: block;
+    text-decoration: none;
+    color: #000;
+    font-size: 16px;
+    padding: 10px 20px;
+    -webkit-transition: background-color .3s;
+    transition: background-color .3s;
+    background-color: #f083cb;
+    border-radius: 5px;
+}

@@ -1,0 +1,7 @@
+
+.PofileWrapper {
+    display: grid;
+    grid-area: cont;
+    width: 100%;
+    background: skyblue;
+}

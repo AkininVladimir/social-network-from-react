@@ -1,12 +1,12 @@
 
-.MassageWrapper{
-grid-area: C;
-}
-.Massege_item {
-    display: block;
-    background: rgba(255, 255, 255, 0.05);
-    width: 600px;
-    height: 75%;
-    border-radius: 0.2em;
+.MassegeItems {
+    display: grid;
+    grid-area: C;
+    width: 100%;
+    grid-template-rows: 200px;
+    margin-top: 10px;
+    background: rgba(198, 203, 233, 0.6);
+    border-radius: 10px;
     box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.1);
+    text-align: -moz-left;
 }

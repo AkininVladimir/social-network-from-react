@@ -1,25 +1,26 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 .app-wrapper {
-  display: grid;
-  grid-template-areas:
-    "header header header"
-    "nav-bar cont cont";
-  grid-template-rows: 200px 12fr;
-  grid-template-columns: 2fr 10fr;
-  grid-gap: 4px;
+    display: grid;
+    gap: 20px;
+    grid-template-areas:
+    "header header header header"
+    "nav-bar cont cont cont"
+    "nav-bar cont cont cont";
 
 }
 
-.app-wrapper-content {
-  grid-area: cont;
-  color: black;
+/*.app-wrapper-content {
+    display: grid;
+    grid-area: cont;
+    place-items: center;
+    background: skyblue;
 
-  }
+}*/
 
 
 

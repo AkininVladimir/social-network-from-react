@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import classes from './MyPost.module.css';
 import Post from "./Post/Post";
 
@@ -37,15 +37,37 @@ import Post from "./Post/Post";
 ]*/
 
 const MyPost = (props) => {
-    let postElements = props.posts.map(p => (
+    let postElements = props.post.map(p => (
         <Post name={p.name} message={p.message} likeCounter={p.likeCounter} dislikeCounter={p.dislikeCounter}
               postDate={p.postDate}/>))
-       return (
-        <div>
-            <textarea className="" id="" cols="30" rows="10"></textarea>
-            {postElements}
-        </div>
 
+    let newPostElement = useRef();
+
+    let addPost = () => {
+        let text = newPostElement.current.value;
+        alert(text);
+    }
+
+    return (
+        <div className={classes.MypostWrapper}>
+            <div className={classes.CommentsFormBlock}>
+                <div className={classes.CommentsAvatar}>
+                    <img alt="picture"
+                         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwvdY18l2WSnl9JsRSQPn7dV7eCKxyIX72mQ&usqp=CAU"/>
+                </div>
+                <div className={classes.FormBlock}>
+                    <form action="#">
+                        <textarea className={classes.CommentsText} id="" cols="30" rows="10"
+                                  placeholder="Тект сообщения" ref={newPostElement}></textarea>
+                    </form>
+                    <button onClick={addPost} className={classes.CommentsButton}>Отправить</button>
+                </div>
+            </div>
+            <div>
+                {postElements}
+            </div>
+
+        </div>
     );
 }
 

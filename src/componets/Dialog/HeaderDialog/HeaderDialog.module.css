@@ -1,3 +1,34 @@
 .HeaderWrapper {
+    display: grid;
     grid-area: A;
+    align-items: center;
+    justify-content: start;
+    background: rgba(198, 203, 233, 0.6);
+    border-radius: 0.2em;
+    box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.1);
+}
+
+.HeaderInput {
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+}
+
+.HeaderInput input {
+    padding-top: 14px;
+    padding-right: 47px;
+    padding-bottom: 14px;
+    padding-left: 15px;
+    font-family: inherit;
+    font-size:12px;
+    font-weight:300;
+    line-height:5px;
+    color:grey;
+    border: 2px;
+    border-style: solid;
+    border-color: grey;
+    border-radius: 12px;
+    background-color:white;
+    transition: border .25s ease-in;
+
 }

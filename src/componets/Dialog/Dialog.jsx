@@ -4,6 +4,7 @@ import DialogItems from "./DialogItems/DialogItems";
 import MassegeItems from "./MassegeItems/MassegeItems";
 import HeaderDialog from "./HeaderDialog/HeaderDialog";
 
+
 const Dialog = (props) => {
 
     /*let dialogData = [
@@ -17,7 +18,7 @@ const Dialog = (props) => {
         {id: 6, name: 'Юля'},
     ]*/
 
-    let dialogElements = props.dialog.map(d => <DialogItems name={d.name} id={d.id}/>)
+    let dialogElements = props.DialogState.dialog.map(d => <DialogItems name={d.name} id={d.id}/>);
     //     [
     //     ,
     //     <DialogItems name={dialogData[1].name} id={dialogData[1].id}/>,
@@ -33,7 +34,7 @@ const Dialog = (props) => {
         {id: 3, massege: 'Все круто!'}
     ]*/
 
-    let massegeElements = props.massege.map(m => <MassegeItems text={m.massege} id={m.id}/>)
+    let massegeElements = props.MassegeState.massege.map(m => <MassegeItems text={m.massege} id={m.id}/>);
     /*[
     <MessageItems text={massegeData[0].massege} id={massegeData[0].id}/>,
     <MessageItems text={massegeData[1].massege} id={massegeData[1].id}/>,
@@ -43,10 +44,17 @@ const Dialog = (props) => {
     return (
         <div className={classes.Dialog_wrapper}>
             <HeaderDialog />
-            {dialogElements}
-            {massegeElements}
+            <div>
+                {dialogElements}
+            </div>
+            <div>
+                {massegeElements}
+            </div>
+
         </div>
 
     )
 }
+
+
 export default Dialog;

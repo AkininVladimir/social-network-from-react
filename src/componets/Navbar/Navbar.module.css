@@ -1,56 +1,25 @@
 .Navbar {
-    grid-area: nav-bar;
-    background-color: #ffff;
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    column-gap: 10px;
-    row-gap: 1em;
-    align-self: start;
-    justify-self: center;
+    grid-area: nav-bar;
+    grid-gap: 10px;
+    align-content: start;
 }
 
 .item {
-    color: #fffff;
-    cursor: pointer;
-    display: block;
-    position: relative;
-    width: 125px;
-    height: 40px;
+
+    color: #ff14bd;
+    border: .4rem solid #ff14bd;
+    border-radius: 1rem;
+    font-size: 20px;
+    padding: .8rem;
     text-align: center;
-    text-transform: uppercase;
-    border: 2px solid #d4165b;
-    border-radius: 20px;
-    transition: all 0.4s ;
 }
 
-.item:hover {
-    color: #fff;
-    background-color: transparent;
-
+.item a {
+    border: none;
+    text-decoration: none;
+    font-weight: 400;
+    color: #ff14bd;
 }
 
-.item:hover {
-    color: #ffffff !important;
-    background-color: transparent;
-    text-shadow: nfour;
-}
 
-.item:hover:before {
-    right: 0%;
-    left: auto;
-    width: 200%;
-}
-
-.item:before {
-    display: block;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    height: 100%;
-    width: 0px;
-    z-index: -1;
-    content: '';
-    color: #ffffff ;
-    background: #d4165b;
-    transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1) 0s;
-}
