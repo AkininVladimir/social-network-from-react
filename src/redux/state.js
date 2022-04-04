@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {rerenderAllTree} from "../render";
 let State = {
     ProfilePage: {
         post: [
@@ -41,12 +41,26 @@ let State = {
 
         ],
         massege: [
-            {id: 1, massege: 'Привет! Как Дела? Как твои уроки по Уроки React JS'},
-            {id: 2, massege: 'Я рад и мне очень весело'},
-            {id: 3, massege: 'Все круто!'}
+            {id: 1, message: 'Привет! Как Дела? Как твои уроки по Уроки React JS'},
+            {id: 2, message: 'Я рад и мне очень весело'},
+            {id: 3, message: 'Все круто!'}
         ]
     }
 
+}
+
+export let addPost = (newMessage) => {
+    let newPost = {
+        id: 4,
+        name: 'no-name',
+        message: newMessage,
+        likeCounter: '0',
+        dislikeCounter: '0',
+        postDate: 'Май 12, 2022'
+    };
+    State.ProfilePage.post.push(newPost);
+
+    rerenderAllTree(State);
 }
 
 export default State;

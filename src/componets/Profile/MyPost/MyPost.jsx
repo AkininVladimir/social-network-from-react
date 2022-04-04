@@ -45,9 +45,8 @@ const MyPost = (props) => {
 
     let addPost = () => {
         let text = newPostElement.current.value;
-        alert(text);
+        props.newPost(text);
     }
-
     return (
         <div className={classes.MypostWrapper}>
             <div className={classes.CommentsFormBlock}>
