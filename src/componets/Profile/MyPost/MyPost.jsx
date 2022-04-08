@@ -47,6 +47,12 @@ const MyPost = (props) => {
         let text = newPostElement.current.value;
         props.newPost(text);
     }
+
+    let onPostChange =() => {
+        let text = newPostElement.current.value;
+        props.updateNewPost(text);
+    }
+
     return (
         <div className={classes.MypostWrapper}>
             <div className={classes.CommentsFormBlock}>
@@ -56,8 +62,13 @@ const MyPost = (props) => {
                 </div>
                 <div className={classes.FormBlock}>
                     <form action="#">
-                        <textarea className={classes.CommentsText} id="" cols="30" rows="10"
-                                  placeholder="Тект сообщения" ref={newPostElement}></textarea>
+                        <textarea className={classes.CommentsText}
+                                  onChange={onPostChange}
+                                  id=""
+                                  cols="30" rows="10"
+                                  placeholder=""
+                                  value = {props.newPostChange}
+                                  ref={newPostElement}/>
                     </form>
                     <button onClick={addPost} className={classes.CommentsButton}>Отправить</button>
                 </div>

@@ -1,7 +1,7 @@
 import './index.css';
 import {rerenderAllTree} from "./render";
 import State from "./redux/state";
-import {addPost} from "./redux/state";
+
 /*let postData = [
     {
         id: 1,
@@ -45,5 +45,4 @@ let massegeData = [
     {id: 3, massege: 'Все круто!'}
 ]*/
 
-rerenderAllTree(State, addPost);
-
+rerenderAllTree(State);

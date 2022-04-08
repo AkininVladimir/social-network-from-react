@@ -1,5 +1,6 @@
 import React from 'react';
 import {rerenderAllTree} from "../render";
+
 let State = {
     ProfilePage: {
         post: [
@@ -27,7 +28,8 @@ let State = {
                 dislikeCounter: '3',
                 postDate: 'Ноябрь 17, 2021'
             }
-        ]
+        ],
+        newPostChange: ''
     },
 
     DialogsPage: {
@@ -40,26 +42,46 @@ let State = {
             {id: 6, name: 'Юля'}
 
         ],
-        massege: [
-            {id: 1, message: 'Привет! Как Дела? Как твои уроки по Уроки React JS'},
-            {id: 2, message: 'Я рад и мне очень весело'},
-            {id: 3, message: 'Все круто!'}
-        ]
+        say: [
+            {id: 1, massege: 'Привет! Как Дела? Как твои уроки по Уроки React JS'},
+            {id: 2, massege: 'Я рад и мне очень весело'},
+            {id: 3, massege: 'Все круто!'}
+        ],
+        addSayMassege: ''
     }
-
 }
 
 export let addPost = (newMessage) => {
     let newPost = {
         id: 4,
         name: 'no-name',
-        message: newMessage,
+        message: State.ProfilePage.newPostChange,
         likeCounter: '0',
         dislikeCounter: '0',
         postDate: 'Май 12, 2022'
     };
-    State.ProfilePage.post.push(newPost);
+    newMessage = State.ProfilePage.post.push(newPost);
+    State.ProfilePage.newPostChange = '';
+    rerenderAllTree(State);
 
+}
+export let updateNewPost = (newText) => {
+    State.ProfilePage.newPostChange = newText;
+    rerenderAllTree(State);
+
+}
+
+export let addMassegeText = () => {
+    let newMassege = {id: 4,
+        massege: State.DialogsPage.addSayMassege
+    };
+    State.DialogsPage.say.push(newMassege);
+    State.DialogsPage.addSayMassege= '';
+    rerenderAllTree(State);
+}
+
+export let newMassegeText = (newText) => {
+    State.DialogsPage.addSayMassege = newText;
     rerenderAllTree(State);
 }
 
