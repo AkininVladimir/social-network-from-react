@@ -1,6 +1,27 @@
 import './index.css';
-import {rerenderAllTree} from "./render";
-import State from "./redux/state";
+import State, {subscriber} from "./redux/state";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+import {addMassegeText, addPost, newMassegeText, updateNewPost} from "./redux/state";
+import {BrowserRouter} from "react-router-dom";
+
+export let rerenderAllTree = () => {
+    ReactDOM.render(
+        <BrowserRouter>
+            <React.StrictMode>
+                <App appState={State} newPost={addPost} updateNewPost={updateNewPost} addMassegeText={addMassegeText} newMassegeText={newMassegeText}/>
+            </React.StrictMode>,
+        </BrowserRouter>,
+        document.getElementById('root')
+    );
+}
+
+rerenderAllTree(State);
+subscriber(rerenderAllTree);
+reportWebVitals();
 
 /*let postData = [
     {
@@ -44,5 +65,3 @@ let massegeData = [
     {id: 2, massege: 'Я рад и мне очень весело'},
     {id: 3, massege: 'Все круто!'}
 ]*/
-
-rerenderAllTree(State);

@@ -1,5 +1,8 @@
 import React from 'react';
-import {rerenderAllTree} from "../render";
+
+let  rerenderAllTree =() => {
+
+}
 
 let State = {
     ProfilePage: {
@@ -51,7 +54,7 @@ let State = {
     }
 }
 
-export let addPost = (newMessage) => {
+export const addPost = (newMessage) => {
     let newPost = {
         id: 4,
         name: 'no-name',
@@ -65,24 +68,27 @@ export let addPost = (newMessage) => {
     rerenderAllTree(State);
 
 }
-export let updateNewPost = (newText) => {
+export const updateNewPost = (newText) => {
     State.ProfilePage.newPostChange = newText;
     rerenderAllTree(State);
 
 }
-
-export let addMassegeText = () => {
-    let newMassege = {id: 4,
+export const addMassegeText = () => {
+    let newMassege = {
+        id: 4,
         massege: State.DialogsPage.addSayMassege
     };
     State.DialogsPage.say.push(newMassege);
-    State.DialogsPage.addSayMassege= '';
+    State.DialogsPage.addSayMassege = '';
+    rerenderAllTree(State);
+}
+export const newMassegeText = (newText) => {
+    State.DialogsPage.addSayMassege = newText;
     rerenderAllTree(State);
 }
 
-export let newMassegeText = (newText) => {
-    State.DialogsPage.addSayMassege = newText;
-    rerenderAllTree(State);
+export let subscriber = (observer) =>{
+    rerenderAllTree = observer;
 }
 
 export default State;
