@@ -1,26 +1,29 @@
 import './index.css';
-import State, {subscriber} from "./redux/state";
 import React from 'react';
 import ReactDOM from 'react-dom';
+import store from "./redux/state";
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {addMassegeText, addPost, newMassegeText, updateNewPost} from "./redux/state";
 import {BrowserRouter} from "react-router-dom";
 
-export let rerenderAllTree = () => {
+export let rerenderAlltree = () => {
     ReactDOM.render(
         <BrowserRouter>
             <React.StrictMode>
-                <App appState={State} newPost={addPost} updateNewPost={updateNewPost} addMassegeText={addMassegeText} newMassegeText={newMassegeText}/>
+                <App appState={store.getState()}
+                     newPost={store.addPost.bind(store)}
+                     updateNewPost={store.updateNewPost.bind(store)}
+                     addMassegeText={store.addMassegeText.bind(store)}
+                     newMassegeText={store.newMassegeText.bind(store)}></App>
             </React.StrictMode>,
         </BrowserRouter>,
         document.getElementById('root')
     );
 }
 
-rerenderAllTree(State);
-subscriber(rerenderAllTree);
+rerenderAlltree (store.getState());
+store.subscriber(rerenderAlltree);
 reportWebVitals();
 
 /*let postData = [
