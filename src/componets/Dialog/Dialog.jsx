@@ -1,26 +1,27 @@
 import React, {useRef} from 'react';
 import classes from './Dialog.module.css';
 import DialogItems from "./DialogItems/DialogItems";
-import MassegeItems from "./MassegeItems/MassegeItems";
+import MessageItems from "./MessageItems/MessageItems";
 import HeaderDialog from "./HeaderDialog/HeaderDialog";
 
 
 let Dialog = (props) => {
 
-    let dialogElements = props.DialogState.map(d => <DialogItems name={d.name} id={d.id}/>);
+    let dialogElements = props.dialog.DialogsPage.dialog.map(d => <DialogItems name={d.name} id={d.id}/>);
 
-    let massegeElements = props.MassegeState.map(m => <MassegeItems text={m.massege}/>);
+    let messageElements = props.dialog.DialogsPage.say.map(m => <MessageItems text={m.message}/>);
 
-    let massegeElement = useRef();
+    let messageElement = useRef();
 
-    let pushMassegeText = () => {
-        let text = massegeElement.current.value;
-        props.addMassegeText(text);
+    let pushMessageText = () => {
+        let action = {type:'ADD-MESSAGE-TEXT'};
+        props.dispatch(action);
     }
 
-    let newMassegeText = () => {
-        let text = massegeElement.current.value;
-        props.newMassegeText(text);
+    let newMessageText = () => {
+        let text = messageElement.current.value;
+        let action = {type:'NEW-MESSAGE', newText: text};
+        props.dispatch(action);
     }
 
     return (
@@ -30,10 +31,10 @@ let Dialog = (props) => {
                 {dialogElements}
             </div>
             <div>
-                {massegeElements}
+                {messageElements}
                 <div>
-                    <textarea onChange={newMassegeText} className={classes.MassegeText} ref={massegeElement} value={props.addSayMassege}/>
-                    <button onClick={pushMassegeText} className={classes.MassegePushText}>Отправить</button>
+                    <textarea onChange={newMessageText} className={classes.MessageText} ref={messageElement} value={props.dialog.DialogsPage.addSayMessage}/>
+                    <button onClick={pushMessageText} className={classes.MessagePushText}>Отправить</button>
                 </div>
 
             </div>

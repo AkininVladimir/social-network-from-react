@@ -11,11 +11,8 @@ export let rerenderAlltree = () => {
     ReactDOM.render(
         <BrowserRouter>
             <React.StrictMode>
-                <App appState={store.getState()}
-                     newPost={store.addPost.bind(store)}
-                     updateNewPost={store.updateNewPost.bind(store)}
-                     addMassegeText={store.addMassegeText.bind(store)}
-                     newMassegeText={store.newMassegeText.bind(store)}></App>
+                <App appState={store._state}
+                     dispatch={store.dispatch.bind(store)}></App>
             </React.StrictMode>,
         </BrowserRouter>,
         document.getElementById('root')

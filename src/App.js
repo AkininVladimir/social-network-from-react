@@ -15,15 +15,8 @@ const App = (props) => {
             <Header/>
             <Navbar/>
                 <Routes>
-                    <Route path='/dialog' element={<Dialog DialogState = {props.appState.DialogsPage.dialog}
-                                                           MassegeState = {props.appState.DialogsPage.say}
-                                                           addMassegeText={props.addMassegeText}
-                                                           addSayMassege ={props.appState.DialogsPage.addSayMassege}
-                                                           newMassegeText={props.newMassegeText}/>}/>
-                    <Route path='/profile' element={<Profile PostState = {props.appState.ProfilePage.post}
-                                                             newPost = {props.newPost}
-                                                             updateNewPost = {props.updateNewPost}
-                                                             newPostChange = {props.appState.ProfilePage.newPostChange}/>}/>
+                    <Route path='/dialog' element={<Dialog dispatch = {props.dispatch} dialog = {props.appState}/>}/>
+                    <Route path='/profile' element={<Profile dispatch = {props.dispatch} postElements ={props.appState}/>}/>
                     <Route path='/services' element={<Services/>}/>
                     <Route path='/music' element={<Music/>}/>
                     <Route path='/settings' element={<Settings/>}/>

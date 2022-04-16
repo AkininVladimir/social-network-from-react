@@ -7,11 +7,7 @@ const Profile = (props) => {
     return (
         <div className={classes.ProfileWrapper}>
             <ProfileInfo/>
-            <MyPost post = {props.PostState}
-                    newPost = {props.newPost}
-                    newPostChange = {props.newPostChange}
-                    updateNewPost = {props. updateNewPost}
-            />
+            <MyPost dispatch = {props.dispatch} postElements = {props.postElements}/>
         </div>
     );
 }

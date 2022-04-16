@@ -43,54 +43,85 @@ let store = {
 
             ],
             say: [
-                {id: 1, massege: 'Привет! Как Дела? Как твои уроки по Уроки React JS'},
-                {id: 2, massege: 'Я рад и мне очень весело'},
-                {id: 3, massege: 'Все круто!'}
+                {id: 1, message: 'Привет! Как Дела? Как твои уроки по Уроки React JS'},
+                {id: 2, message: 'Я рад и мне очень весело'},
+                {id: 3, message: 'Все круто!'}
             ],
-            addSayMassege: ''
+            addSayMessage: ''
         }
     },
-    getState () {
+    _callSubscriber() {
+    },
+    getState() {
         return this._state;
     },
-    _callSubscriber () {},
-
-    addPost(newMessage)  {
-        let newPost = {
-            id: 4,
-            name: 'no-name',
-            message: this._state.ProfilePage.newPostChange,
-            likeCounter: '0',
-            dislikeCounter: '0',
-            postDate: 'Май 12, 2022'
-        };
-        newMessage = this._state.ProfilePage.post.push(newPost);
-        this._state.ProfilePage.newPostChange = '';
-       this._callSubscriber (this._state);
-
+    subscriber(observe) {
+        this._callSubscriber = observe;
     },
-    updateNewPost(newText) {
-        this._state.ProfilePage.newPostChange = newText;
-        this._callSubscriber (this._state);
+    dispatch(action) {
+        if (action.type === 'ADD-POST') {
+            let newPost = {
+                id: 4,
+                name: 'no-name',
+                message: this._state.ProfilePage.newPostChange,
+                likeCounter: '0',
+                dislikeCounter: '0',
+                postDate: 'Май 12, 2022'
+            };
+            this._state.ProfilePage.post.push(newPost);
+            this._state.ProfilePage.newPostChange = '';
+            this._callSubscriber();
+        } else if (action.type === "SELECT-UPDATE-POST") {
+            this._state.ProfilePage.newPostChange = action.newText;
+            this._callSubscriber();
+        } else if (action.type === 'ADD-MESSAGE-TEXT') {
+            let newMessage = {
+                id: 4,
+                message: this._state.DialogsPage.addSayMessage
+            };
+            this._state.DialogsPage.say.push(newMessage);
+            this._state.DialogsPage.addSayMessage = '';
+            this._callSubscriber();
+        } else if (action.type === 'NEW-MESSAGE') {
+            this._state.DialogsPage.addSayMessage = action.newText;
+            this._callSubscriber();
+        }
 
-    },
-    addMassegeText() {
-        let newMassege = {
-            id: 4,
-            massege: this._state.DialogsPage.addSayMassege
-        };
-        this._state.DialogsPage.say.push(newMassege);
-        this._state.DialogsPage.addSayMassege = '';
-        this._callSubscriber (this._state);
-    },
-
-    newMassegeText(newText)  {
-        this._state.DialogsPage.addSayMassege = newText;
-        this._callSubscriber (this._state);
-    },
-
-    subscriber (observe) {this._callSubscriber = observe;}
+    }
 }
 
 window.store = store;
 export default store;
+
+/*    addPost(newMessage) {
+            let newPost = {
+                id: 4,
+                name: 'no-name',
+                message: this._state.ProfilePage.newPostChange,
+                likeCounter: '0',
+                dislikeCounter: '0',
+                postDate: 'Май 12, 2022'
+            };
+            newMessage = this._state.ProfilePage.post.push(newPost);
+            this._state.ProfilePage.newPostChange = '';
+            this._callSubscriber(this._state);
+
+        },
+        updateNewPost(newText) {
+            this._state.ProfilePage.newPostChange = newText;
+            this._callSubscriber(this._state);
+
+        },
+        addMassegeText() {
+            let newMassege = {
+                id: 4,
+                massege: this._state.DialogsPage.addSayMassege
+            };
+            this._state.DialogsPage.say.push(newMassege);
+            this._state.DialogsPage.addSayMassege = '';
+            this._callSubscriber(this._state);
+        },
+        newMassegeText(newText) {
+            this._state.DialogsPage.addSayMassege = newText;
+            this._callSubscriber(this._state);
+        },*/

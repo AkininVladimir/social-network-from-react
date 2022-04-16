@@ -12,7 +12,7 @@
     height: 100%;
 }
 
-.MassegeText {
+.MessageText {
     width: 100%;
     max-height: 50px;
     padding: 12px 20px;
@@ -22,7 +22,7 @@
     background-color: #f8f8f8;
 }
 
-.MassegePushText {
+.MessagePushText {
     cursor: pointer;
     position: relative;
     display: block;
