@@ -1,5 +1,12 @@
 import React from 'react';
 
+/* Вынносим константы в виде тектовых переменных которые не буду изменяться т.н. actionType */
+const ADD_POST = 'ADD-POST';
+const SELECT_UPDATE_POST = 'SELECT-UPDATE-POST';
+const ADD_MESSAGE_TEXT = 'ADD-MESSAGE-TEXT';
+const NEW_MESSAGE = 'NEW-MESSAGE';
+/* Вынносим константы в виде тектовых переменных которые не буду изменяться т.н. actionType */
+
 let store = {
     _state: {
         ProfilePage: {
@@ -89,6 +96,13 @@ let store = {
 
     }
 }
+/*создаем рефакторинг пердачи dispatch, а именно action creator для объектов с изменяющимися данными и пердаем их в UI */
+export const addPostActionCreator = () => ({type: ADD_POST});
+export const selectUpdatePostActionCreator = (text) => ({type: SELECT_UPDATE_POST, newText: text});
+export const addMessageTextActionCreator = () => ({type: ADD_MESSAGE_TEXT});
+
+export const newMessageTextActionCreator = (text) => ({type: NEW_MESSAGE, newText: text});
+/*создаем рефакторинг пердачи dispatch, а именно action creator для объектов с изменяющимися данными и пердаем их в UI */
 
 window.store = store;
 export default store;

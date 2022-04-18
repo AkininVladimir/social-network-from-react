@@ -6,13 +6,14 @@
 }
 
 .item {
-
+    margin-left: 20px;
+    width: 50%;
     color: #ff14bd;
     border: .4rem solid #ff14bd;
     border-radius: 1rem;
     font-size: 20px;
     padding: .8rem;
-    text-align: center;
+    text-align:center;
 }
 
 .item a {
@@ -20,6 +21,7 @@
     text-decoration: none;
     font-weight: 400;
     color: #ff14bd;
+    font-size: 24px;
 }
 
 

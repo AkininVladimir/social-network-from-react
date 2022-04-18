@@ -1,7 +1,7 @@
 import React, {useRef} from 'react';
 import classes from './MyPost.module.css';
 import Post from "./Post/Post";
-
+import {addPostActionCreator, selectUpdatePostActionCreator} from "../../../redux/state";
 
 const MyPost = (props) => {
     let postElements = props.postElements.ProfilePage.post.map(p => <Post name={p.name}
@@ -9,28 +9,25 @@ const MyPost = (props) => {
                                                                           likeCounter={p.likeCounter}
                                                                           dislikeCounter={p.dislikeCounter}
                                                                           postDate={p.postDate}/>);
-
     let newPostElement = useRef();
 
     let addPost = () => {
-        props.dispatch({type: 'ADD-POST'});
+        props.dispatch(addPostActionCreator());
     }
 
     let onPostChange = () => {
         let text = newPostElement.current.value;
-        let action = {type: 'SELECT-UPDATE-POST', newText: text}
-        props.dispatch(action);
+        props.dispatch(selectUpdatePostActionCreator(text));
     }
 
-    return (
-        <div className={classes.MypostWrapper}>
-            <div className={classes.CommentsFormBlock}>
-                <div className={classes.CommentsAvatar}>
-                    <img alt="picture"
-                         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwvdY18l2WSnl9JsRSQPn7dV7eCKxyIX72mQ&usqp=CAU"/>
-                </div>
-                <div className={classes.FormBlock}>
-                    <form action="#">
+    return (<div className={classes.MypostWrapper}>
+        <div className={classes.CommentsFormBlock}>
+            <div className={classes.CommentsAvatar}>
+                <img alt="picture"
+                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwvdY18l2WSnl9JsRSQPn7dV7eCKxyIX72mQ&usqp=CAU"/>
+            </div>
+            <div className={classes.FormBlock}>
+                <form action="#">
                         <textarea className={classes.CommentsText}
                                   onChange={onPostChange}
                                   id=""
@@ -38,16 +35,15 @@ const MyPost = (props) => {
                                   placeholder=""
                                   value={props.postElements.ProfilePage.newPostChange}
                                   ref={newPostElement}/>
-                    </form>
-                    <button onClick={addPost} className={classes.CommentsButton}>Отправить</button>
-                </div>
+                </form>
+                <button onClick={addPost} className={classes.CommentsButton}>Отправить</button>
             </div>
-            <div>
-                {postElements}
-            </div>
-
         </div>
-    );
+        <div>
+            {postElements}
+        </div>
+
+    </div>);
 }
 
 export default MyPost;
