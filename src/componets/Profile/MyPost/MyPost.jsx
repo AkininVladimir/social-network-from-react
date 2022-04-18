@@ -1,7 +1,7 @@
 import React, {useRef} from 'react';
 import classes from './MyPost.module.css';
 import Post from "./Post/Post";
-import {addPostActionCreator, selectUpdatePostActionCreator} from "../../../redux/state";
+import {addPostActionCreator, selectUpdatePostActionCreator} from "../../../redux/ProfileReducer";
 
 const MyPost = (props) => {
     let postElements = props.postElements.ProfilePage.post.map(p => <Post name={p.name}

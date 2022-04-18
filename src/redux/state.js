@@ -1,11 +1,6 @@
 import React from 'react';
-
-/* Вынносим константы в виде тектовых переменных которые не буду изменяться т.н. actionType */
-const ADD_POST = 'ADD-POST';
-const SELECT_UPDATE_POST = 'SELECT-UPDATE-POST';
-const ADD_MESSAGE_TEXT = 'ADD-MESSAGE-TEXT';
-const NEW_MESSAGE = 'NEW-MESSAGE';
-/* Вынносим константы в виде тектовых переменных которые не буду изменяться т.н. actionType */
+import DialogsReducer from "./DialogsReducer";
+import ProfileReducer from "./ProfileReducer";
 
 let store = {
     _state: {
@@ -66,43 +61,11 @@ let store = {
         this._callSubscriber = observe;
     },
     dispatch(action) {
-        if (action.type === 'ADD-POST') {
-            let newPost = {
-                id: 4,
-                name: 'no-name',
-                message: this._state.ProfilePage.newPostChange,
-                likeCounter: '0',
-                dislikeCounter: '0',
-                postDate: 'Май 12, 2022'
-            };
-            this._state.ProfilePage.post.push(newPost);
-            this._state.ProfilePage.newPostChange = '';
-            this._callSubscriber();
-        } else if (action.type === "SELECT-UPDATE-POST") {
-            this._state.ProfilePage.newPostChange = action.newText;
-            this._callSubscriber();
-        } else if (action.type === 'ADD-MESSAGE-TEXT') {
-            let newMessage = {
-                id: 4,
-                message: this._state.DialogsPage.addSayMessage
-            };
-            this._state.DialogsPage.say.push(newMessage);
-            this._state.DialogsPage.addSayMessage = '';
-            this._callSubscriber();
-        } else if (action.type === 'NEW-MESSAGE') {
-            this._state.DialogsPage.addSayMessage = action.newText;
-            this._callSubscriber();
-        }
-
+        this._state.ProfilePage = ProfileReducer( this._state.ProfilePage, action);
+        this._state.DialogsPage = DialogsReducer(this._state.DialogsPage, action);
+        this._callSubscriber(this._state);
     }
 }
-/*создаем рефакторинг пердачи dispatch, а именно action creator для объектов с изменяющимися данными и пердаем их в UI */
-export const addPostActionCreator = () => ({type: ADD_POST});
-export const selectUpdatePostActionCreator = (text) => ({type: SELECT_UPDATE_POST, newText: text});
-export const addMessageTextActionCreator = () => ({type: ADD_MESSAGE_TEXT});
-
-export const newMessageTextActionCreator = (text) => ({type: NEW_MESSAGE, newText: text});
-/*создаем рефакторинг пердачи dispatch, а именно action creator для объектов с изменяющимися данными и пердаем их в UI */
 
 window.store = store;
 export default store;
@@ -139,3 +102,46 @@ export default store;
             this._state.DialogsPage.addSayMassege = newText;
             this._callSubscriber(this._state);
         },*/
+
+/* Вынносим константы в виде тектовых переменных которые не буду изменяться т.н. actionType */
+/*const ADD_POST = 'ADD-POST';
+const SELECT_UPDATE_POST = 'SELECT-UPDATE-POST';
+const ADD_MESSAGE_TEXT = 'ADD-MESSAGE-TEXT';
+const NEW_MESSAGE = 'NEW-MESSAGE';*/
+/* Вынносим константы в виде тектовых переменных которые не буду изменяться т.н. actionType */
+
+/*создаем рефакторинг пердачи dispatch, а именно action creator для объектов с изменяющимися данными и пердаем их в UI */
+/*export const addPostActionCreator = () => ({type: ADD_POST});
+export const selectUpdatePostActionCreator = (text) => ({type: SELECT_UPDATE_POST, newText: text});
+export const addMessageTextActionCreator = () => ({type: ADD_MESSAGE_TEXT});
+export const newMessageTextActionCreator = (text) => ({type: NEW_MESSAGE, newText: text});*/
+/*создаем рефакторинг пердачи dispatch, а именно action creator для объектов с изменяющимися данными и пердаем их в UI */
+
+
+/* if (action.type === 'ADD-POST') {
+            let newPost = {
+                id: 4,
+                name: 'no-name',
+                message: this._state.ProfilePage.newPostChange,
+                likeCounter: '0',
+                dislikeCounter: '0',
+                postDate: 'Май 12, 2022'
+            };
+            this._state.ProfilePage.post.push(newPost);
+            this._state.ProfilePage.newPostChange = '';
+            this._callSubscriber();
+        } else if (action.type === "SELECT-UPDATE-POST") {
+            this._state.ProfilePage.newPostChange = action.newText;
+            this._callSubscriber();
+        } else if (action.type === 'ADD-MESSAGE-TEXT') {
+            let newMessage = {
+                id: 4,
+                message: this._state.DialogsPage.addSayMessage
+            };
+            this._state.DialogsPage.say.push(newMessage);
+            this._state.DialogsPage.addSayMessage = '';
+            this._callSubscriber();
+        } else if (action.type === 'NEW-MESSAGE') {
+            this._state.DialogsPage.addSayMessage = action.newText;
+            this._callSubscriber();
+        }*/

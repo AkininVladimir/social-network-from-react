@@ -3,7 +3,7 @@ import classes from './Dialog.module.css';
 import DialogItems from "./DialogItems/DialogItems";
 import MessageItems from "./MessageItems/MessageItems";
 import HeaderDialog from "./HeaderDialog/HeaderDialog";
-import {addMessageTextActionCreator, newMessageTextActionCreator} from "../../redux/state";
+import {addMessageTextActionCreator, newMessageTextActionCreator} from "../../redux/DialogsReducer";
 
 let Dialog = (props) => {
 
@@ -14,11 +14,11 @@ let Dialog = (props) => {
     let messageElement = useRef();
 
     let pushMessageText = () => {
-        props.dispatch(addMessageTextActionCreator())
+        props.dispatch(addMessageTextActionCreator());
     }
 
-    let newMessageText = () => {
-        let text = messageElement.current.value;
+    let newMessageText = (event) => {
+        let text = event.target.value;
         props.dispatch(newMessageTextActionCreator (text));
     }
 
