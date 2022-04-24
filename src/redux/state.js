@@ -1,4 +1,5 @@
-import React from 'react';
+
+/*import React from 'react';
 import DialogsReducer from "./DialogsReducer";
 import ProfileReducer from "./ProfileReducer";
 
@@ -68,7 +69,7 @@ let store = {
 }
 
 window.store = store;
-export default store;
+export default store;*/
 
 /*    addPost(newMessage) {
             let newPost = {

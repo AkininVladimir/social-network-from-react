@@ -4,6 +4,7 @@ import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import MyPost from "./MyPost/MyPost";
 
 const Profile = (props) => {
+
     return (
         <div className={classes.ProfileWrapper}>
             <ProfileInfo/>

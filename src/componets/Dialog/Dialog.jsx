@@ -7,9 +7,9 @@ import {addMessageTextActionCreator, newMessageTextActionCreator} from "../../re
 
 let Dialog = (props) => {
 
-    let dialogElements = props.dialog.DialogsPage.dialog.map(d => <DialogItems name={d.name} id={d.id}/>);
+    let dialogElements = props.dialogElements.DialogPage.dialog.map(d => <DialogItems name={d.name} id={d.id}/>);
 
-    let messageElements = props.dialog.DialogsPage.say.map(m => <MessageItems text={m.message}/>);
+    let messageElements = props.dialogElements.DialogPage.say.map(m => <MessageItems text={m.message}/>);
 
     let messageElement = useRef();
 
@@ -31,7 +31,7 @@ let Dialog = (props) => {
             <div>
                 {messageElements}
                 <div>
-                    <textarea onChange={newMessageText} className={classes.MessageText} ref={messageElement} value={props.dialog.DialogsPage.addSayMessage}/>
+                    <textarea onChange={newMessageText} className={classes.MessageText} ref={messageElement} value={props.dialogElements.DialogPage.addSayMessage}/>
                     <button onClick={pushMessageText} className={classes.MessagePushText}>Отправить</button>
                 </div>
 

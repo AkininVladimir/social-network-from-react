@@ -4,11 +4,8 @@ import Post from "./Post/Post";
 import {addPostActionCreator, selectUpdatePostActionCreator} from "../../../redux/ProfileReducer";
 
 const MyPost = (props) => {
-    let postElements = props.postElements.ProfilePage.post.map(p => <Post name={p.name}
-                                                                          message={p.message}
-                                                                          likeCounter={p.likeCounter}
-                                                                          dislikeCounter={p.dislikeCounter}
-                                                                          postDate={p.postDate}/>);
+
+    let postElements = props.postElements.ProfilePage.post.map(p => <Post name={p.name} message={p.message} likeCounter={p.likeCounter} dislikeCounter={p.dislikeCounter} postDate={p.postDate}/>);
     let newPostElement = useRef();
 
     let addPost = () => {

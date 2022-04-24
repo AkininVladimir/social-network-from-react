@@ -1,27 +1,30 @@
 import './index.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import store from "./redux/state";
+import store from "./redux/redux-store";
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from "react-router-dom";
 
-export let rerenderAlltree = () => {
+export let rerenderAlltree = (state) => {
+
     ReactDOM.render(
         <BrowserRouter>
             <React.StrictMode>
-                <App appState={store._state}
-                     dispatch={store.dispatch.bind(store)}></App>
+                <App appState={state} dispatch={store.dispatch.bind(store)}></App>
             </React.StrictMode>,
         </BrowserRouter>,
         document.getElementById('root')
     );
 }
-
-rerenderAlltree (store.getState());
-store.subscriber(rerenderAlltree);
 reportWebVitals();
+rerenderAlltree (store.getState());
+store.subscribe(() => {
+    let state = store.getState()
+    rerenderAlltree(state);
+});
+
 
 /*let postData = [
     {

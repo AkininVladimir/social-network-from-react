@@ -1,7 +1,37 @@
 const ADD_POST = 'ADD-POST';
 const SELECT_UPDATE_POST = 'SELECT-UPDATE-POST';
 
-const ProfileReducer = (state, action) => {
+let initialState = {
+    post: [
+        {
+            id: 1,
+            name: 'Алексей Новальный',
+            message: 'Я присел на очень долго',
+            likeCounter: '230',
+            dislikeCounter: '34',
+            postDate: 'Апрель 14, 2022'
+        },
+        {
+            id: 2,
+            name: 'Николай Расторгуев',
+            message: 'Жизнь прекрасна! Улыбайтесь',
+            likeCounter: '90',
+            dislikeCounter: '21',
+            postDate: 'Январь 30, 2022'
+        },
+        {
+            id: 3,
+            name: 'Владимир Соловьев',
+            message: 'Есть две альтернативы',
+            likeCounter: '45',
+            dislikeCounter: '3',
+            postDate: 'Ноябрь 17, 2021'
+        }
+    ],
+    newPostChange: ''
+}
+
+const ProfileReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case 'ADD-POST':
