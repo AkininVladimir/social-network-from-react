@@ -3,23 +3,22 @@ import classes from './Dialog.module.css';
 import DialogItems from "./DialogItems/DialogItems";
 import MessageItems from "./MessageItems/MessageItems";
 import HeaderDialog from "./HeaderDialog/HeaderDialog";
-import {addMessageTextActionCreator, newMessageTextActionCreator} from "../../redux/DialogsReducer";
 
 let Dialog = (props) => {
 
-    let dialogElements = props.dialogElements.DialogPage.dialog.map(d => <DialogItems name={d.name} id={d.id}/>);
+    let dialogElements = props.dialog.map(d => <DialogItems name={d.name} id={d.id}/>);
 
-    let messageElements = props.dialogElements.DialogPage.say.map(m => <MessageItems text={m.message}/>);
+    let messageElements = props.say.map(m => <MessageItems text={m.message}/>);
 
     let messageElement = useRef();
 
     let pushMessageText = () => {
-        props.dispatch(addMessageTextActionCreator());
+        props.pushMessageText();
     }
 
-    let newMessageText = (event) => {
-        let text = event.target.value;
-        props.dispatch(newMessageTextActionCreator (text));
+    let newMessageText = () => {
+        let text = messageElement.current.value;
+        props.selectNewMessageText(text);
     }
 
     return (
@@ -31,7 +30,7 @@ let Dialog = (props) => {
             <div>
                 {messageElements}
                 <div>
-                    <textarea onChange={newMessageText} className={classes.MessageText} ref={messageElement} value={props.dialogElements.DialogPage.addSayMessage}/>
+                    <textarea onChange={newMessageText} className={classes.MessageText} ref={messageElement} value={props.addSayMessage}/>
                     <button onClick={pushMessageText} className={classes.MessagePushText}>Отправить</button>
                 </div>
 

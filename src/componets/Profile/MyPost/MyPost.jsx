@@ -1,20 +1,20 @@
 import React, {useRef} from 'react';
 import classes from './MyPost.module.css';
 import Post from "./Post/Post";
-import {addPostActionCreator, selectUpdatePostActionCreator} from "../../../redux/ProfileReducer";
+
 
 const MyPost = (props) => {
 
-    let postElements = props.postElements.ProfilePage.post.map(p => <Post name={p.name} message={p.message} likeCounter={p.likeCounter} dislikeCounter={p.dislikeCounter} postDate={p.postDate}/>);
+    let postElements = props.post.map(p => <Post name={p.name} message={p.message} likeCounter={p.likeCounter} dislikeCounter={p.dislikeCounter} postDate={p.postDate}/>);
     let newPostElement = useRef();
 
-    let addPost = () => {
-        props.dispatch(addPostActionCreator());
+    let onAddPost = () => {
+        props.addPost();
     }
 
     let onPostChange = () => {
         let text = newPostElement.current.value;
-        props.dispatch(selectUpdatePostActionCreator(text));
+        props.selectUpdatePost(text)
     }
 
     return (<div className={classes.MypostWrapper}>
@@ -30,10 +30,10 @@ const MyPost = (props) => {
                                   id=""
                                   cols="30" rows="10"
                                   placeholder=""
-                                  value={props.postElements.ProfilePage.newPostChange}
+                                  value={props.newPostChange}
                                   ref={newPostElement}/>
                 </form>
-                <button onClick={addPost} className={classes.CommentsButton}>Отправить</button>
+                <button onClick={onAddPost} className={classes.CommentsButton}>Отправить</button>
             </div>
         </div>
         <div>

@@ -12,7 +12,7 @@ export let rerenderAlltree = (state) => {
     ReactDOM.render(
         <BrowserRouter>
             <React.StrictMode>
-                <App appState={state} dispatch={store.dispatch.bind(store)}></App>
+                <App appState={state} dispatch={store.dispatch.bind(store)} store={store}></App>
             </React.StrictMode>,
         </BrowserRouter>,
         document.getElementById('root')
