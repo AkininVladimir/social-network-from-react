@@ -1,27 +1,33 @@
 import React from 'react';
 import {addMessageTextActionCreator, newMessageTextActionCreator} from "../../redux/DialogsReducer";
 import Dialog from "./Dialog";
+import storeContext from "../../storeContext";
 
-let DialogContainer = (props) => {
-
-    let state = props.store.getState();
-
-    let pushMessageText = () => {
-        props.store.dispatch(addMessageTextActionCreator());
-    }
-
-    let newMessageText = (text) => {
-        let action = newMessageTextActionCreator(text);
-        props.store.dispatch(action);
-    }
+let DialogContainer = () => {
 
     return (
-        <Dialog selectNewMessageText={newMessageText}
-                pushMessageText={pushMessageText}
-                dialog={state.DialogPage.dialog}
-                say={state.DialogPage.say}
-                addSayMessage={state.DialogPage.addSayMessage}/>
+        <storeContext.Consumer>
+            {(store) => {
+                let state = store.getState();
 
+                let pushMessageText = () => {
+                    store.dispatch(addMessageTextActionCreator());
+                }
+
+                let newMessageText = (text) => {
+                    let action = newMessageTextActionCreator(text);
+                    store.dispatch(action);
+                }
+
+                return <Dialog selectNewMessageText={newMessageText}
+                               pushMessageText={pushMessageText}
+                               dialog={store.getState().DialogPage.dialog}
+                               say={store.getState().DialogPage.say}
+                               addSayMessage={store.getState().DialogPage.addSayMessage}/>
+            }
+
+        }
+        </storeContext.Consumer>
     )
 }
 

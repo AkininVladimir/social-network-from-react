@@ -6,14 +6,19 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from "react-router-dom";
+import storeContext from "./storeContext";
+
 
 export let rerenderAlltree = (state) => {
 
     ReactDOM.render(
         <BrowserRouter>
-            <React.StrictMode>
-                <App appState={state} dispatch={store.dispatch.bind(store)} store={store}></App>
-            </React.StrictMode>,
+            <storeContext.Provider value={store}>
+                <React.StrictMode>
+                    <App />
+                </React.StrictMode>
+            </storeContext.Provider>
+
         </BrowserRouter>,
         document.getElementById('root')
     );
