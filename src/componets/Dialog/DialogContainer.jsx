@@ -1,9 +1,35 @@
 import React from 'react';
 import {addMessageTextActionCreator, newMessageTextActionCreator} from "../../redux/DialogsReducer";
 import Dialog from "./Dialog";
-import storeContext from "../../storeContext";
+import {connect} from "react-redux";
 
-let DialogContainer = () => {
+
+
+let mapStateToProps = (state) => {
+    return {
+        dialog: state.DialogPage.dialog,
+        say: state.DialogPage.say,
+        addSayMessage: state.DialogPage.addSayMessage
+    }
+}
+
+let mapDispatchToProps = (dispatch) => {
+    return {
+        selectNewMessageText: (text) => {
+            let action = newMessageTextActionCreator(text);
+            dispatch(action);
+        },
+        pushMessageText: () => {
+            dispatch(addMessageTextActionCreator())
+        }
+    }
+}
+
+const DialogContainer = connect(mapStateToProps, mapDispatchToProps)(Dialog);
+
+export default DialogContainer;
+
+/*let DialogContainer = () => {
 
     return (
         <storeContext.Consumer>
@@ -26,9 +52,7 @@ let DialogContainer = () => {
                                addSayMessage={store.getState().DialogPage.addSayMessage}/>
             }
 
-        }
+            }
         </storeContext.Consumer>
     )
-}
-
-export default DialogContainer;
+}*/

@@ -1,12 +1,12 @@
 import './App.css';
 import Header from './componets/Header/Header';
 import Navbar from './componets/Navbar/Navbar';
-import DialogContainer from "./componets/Dialog/DialogContainer";
 import Profile from './componets/Profile/Profile';
 import Settings from "./componets/Settings/Settings";
 import Music from "./componets/Music/Music";
 import Services from "./componets/Services/Services";
 import {Route, Routes} from "react-router-dom";
+import DialogContainer from "./componets/Dialog/DialogContainer";
 
 const App = (props) => {
     return (
