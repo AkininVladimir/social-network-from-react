@@ -4,32 +4,18 @@ import ReactDOM from 'react-dom';
 import store from "./redux/redux-store";
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from "react-router-dom";
 import {Provider} from "react-redux";
 
 
-export let rerenderAlltree = (state) => {
-
-    ReactDOM.render(
-        <BrowserRouter>
-            <Provider store={store}>
-                <React.StrictMode>
-                    <App />
-                </React.StrictMode>
-            </Provider>
-
-        </BrowserRouter>,
-        document.getElementById('root')
-    );
-}
-reportWebVitals();
-rerenderAlltree (store.getState());
-store.subscribe(() => {
-    let state = store.getState()
-    rerenderAlltree(state);
-});
-
+ReactDOM.render(
+    <BrowserRouter>
+        <Provider store={store}>
+            <React.StrictMode>
+                <App />
+            </React.StrictMode>
+        </Provider>
+    </BrowserRouter>, document.getElementById('root'));
 
 /*let postData = [
     {

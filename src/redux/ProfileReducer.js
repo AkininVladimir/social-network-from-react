@@ -28,13 +28,13 @@ let initialState = {
             postDate: 'Ноябрь 17, 2021'
         }
     ],
-    newPostChange: ''
+    newPostChange: '',
 }
 
 const ProfileReducer = (state = initialState, action) => {
 
     switch (action.type) {
-        case 'ADD-POST':
+        case 'ADD-POST':{
             let newPost = {
                 id: 4,
                 name: 'no-name',
@@ -43,16 +43,22 @@ const ProfileReducer = (state = initialState, action) => {
                 dislikeCounter: '0',
                 postDate: 'Май 12, 2022'
             };
-            state.post.push(newPost);
-            state.newPostChange = '';
-            return state;
-        case 'SELECT-UPDATE-POST':
-            state.newPostChange = action.newText;
-            return state;
+            let stateCopy = {...state};
+            stateCopy.post = [...state.post];
+            stateCopy.post.push(newPost);
+            stateCopy.newPostChange = ''
+            return stateCopy;
+    }
+        case 'SELECT-UPDATE-POST': {
+            let stateCopy = {...state}
+            stateCopy.newPostChange = action.newText;
+            return stateCopy;
+        }
         default:
             return state;
     }
 }
+
 export const addPostActionCreator = () => ({type: ADD_POST});
 export const selectUpdatePostActionCreator = (text) => ({type: SELECT_UPDATE_POST, newText: text});
 export default ProfileReducer;
