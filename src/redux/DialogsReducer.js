@@ -21,25 +21,24 @@ let initialState = {
 
 const DialogsReducer = (state = initialState, action) => {
 
-    let stateCopy = {
-        ...state,
-        /*say: [...state.say]*/ /*если не требуется делать более глубокое копитрование, то достаточно поверхностного*/
-    };
-
     switch (action.type) {
         case 'ADD-MESSAGE-TEXT':
             let newMessage = {
                 id: 4,
                 message: state.addSayMessage
             };
-            stateCopy.say.push(newMessage);
-            stateCopy.addSayMessage = '';
-            return stateCopy;
+            return  {
+                ...state,
+                addSayMessage: '',
+                say: [...state.say, (newMessage)]
+            }
         case 'NEW-MESSAGE':
-            stateCopy.addSayMessage = action.newText;
-            return stateCopy;
+            return {
+                ...state,
+                addSayMessage: action.newText
+            }
         default:
-            return stateCopy;
+            return state;
     }
 }
 export const addMessageTextActionCreator = () => ({type: ADD_MESSAGE_TEXT});
