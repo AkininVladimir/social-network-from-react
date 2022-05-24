@@ -6,9 +6,9 @@ import HeaderDialog from "./HeaderDialog/HeaderDialog";
 
 let Dialog = (props) => {
 
-    let dialogElements = props.dialog.map(d => <DialogItems name={d.name} id={d.id}/>);
+    let dialogElements = props.dialog.map(d => <DialogItems key={d.id} name={d.name} id={d.id}/>);
 
-    let messageElements = props.say.map(m => <MessageItems text={m.message}/>);
+    let messageElements = props.say.map(m => <MessageItems key={m.id} text={m.message}/>);
 
     let messageElement = useRef();
 

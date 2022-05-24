@@ -5,7 +5,11 @@ import Post from "./Post/Post";
 
 const MyPost = (props) => {
 
-    let postElements = props.post.map(p => <Post name={p.name} message={p.message} likeCounter={p.likeCounter} dislikeCounter={p.dislikeCounter} postDate={p.postDate}/>);
+    let postElements = props.post.map(p => <Post key={p.id} name={p.name}
+                                                 message={p.message}
+                                                 likeCounter={p.likeCounter}
+                                                 dislikeCounter={p.dislikeCounter}
+                                                 postDate={p.postDate}/>);
     let newPostElement = useRef();
 
     let onAddPost = () => {
