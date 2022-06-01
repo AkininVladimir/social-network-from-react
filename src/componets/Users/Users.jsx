@@ -1,10 +1,12 @@
 import React from "react";
 import style from './Users.module.css';
+import  axios from "axios";
+import user_photo from "./149071.png";
 
 let Users = (props) => {
 
     if (props.users.length === 0) {
-        props.setUsers([
+        /*props.setUsers([
             {
                 id: 1,
                 avaURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp2ScQC703NKYiVWBYTxBGAWI8yhSQGIXjfw&usqp=CAU',
@@ -34,13 +36,19 @@ let Users = (props) => {
                 status: 'Со своими заморочками',
                 location: {city: 'Батуми', country: 'Грузия'}
             }
-        ])
+            ])*/
+
+        axios.get('https://social-network.samuraijs.com/api/1.0/users')
+            .then(response => {
+                props.setUsers(response.data.items)}
+            );
+
     }
 
     return (
         <div>
             {props.users.map(u => <div key={(u.id)}>
-                    <div><img src={u.avaURL} className={style.Avatar} alt=""/></div>
+                    <div><img src={u.photos.small != null ? u.photos.large : user_photo} className={style.Avatar} alt=""/></div>
                     <div>
                         {u.follow
                             ? <button onClick={() => {
@@ -51,10 +59,10 @@ let Users = (props) => {
                             }}>Исключить</button>
                         }
                     </div>
-                    <div>{u.fullName}</div>
+                    <div>{u.name}</div>
                     <div>{u.status}</div>
-                    <div>{u.location.city}</div>
-                    <div>{u.location.country}</div>
+                    {/*<div>{u.location.city}</div>*/}
+                    {/*<div>{u.location.country}</div>*/}
 
                 </div>
             )}
