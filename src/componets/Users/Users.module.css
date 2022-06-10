@@ -1,5 +1,14 @@
 
-.Avatar{
-   width: 20%;
+.Avatar {
+    width: 20%;
     height: 50%;
+}
+
+.itemsContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.countPage {
+    font-weight: bold;
 }
