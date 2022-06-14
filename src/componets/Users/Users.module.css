@@ -1,12 +1,13 @@
 
 .Avatar {
-    width: 20%;
-    height: 50%;
+    width: 90px;
+    height: 100px;
 }
 
 .itemsContainer {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .countPage {
