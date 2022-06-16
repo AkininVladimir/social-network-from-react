@@ -1,6 +1,7 @@
 import React from 'react';
 import style from './Users.module.css';
 import user_photo from "./149071.png";
+import {NavLink} from "react-router-dom";
 
 let Users = (props) => {
     let pagesCount = Math.round(props.totalUsersCount / props.pageSize); /*определяем количество страниц*/
@@ -17,14 +18,20 @@ let Users = (props) => {
                             <div className={props.currentPage === page ? style.countPage : ''}
                                  onClick={() => {
                                      props.onSetClick(page);
-                                 }}>{page}</div>)
+                                 }}>{page}</div>
+                        )
                     }
                 )}
             </div>
+
             {props.users.map(u => <div key={(u.id)}>
 
-                <div><img src={u.photos.small != null ? u.photos.large : user_photo} className={style.Avatar}
-                          alt=""/>
+                <div>
+                    <NavLink to={'/Profile'}>
+                        <img src={u.photos.small != null ? u.photos.large : user_photo} className={style.Avatar}
+                             alt=""/>
+                    </NavLink>
+
                 </div>
                 <div>
                     {u.follow ? <button onClick={() => {
@@ -39,7 +46,6 @@ let Users = (props) => {
                 {/*<div>{u.location.country}</div>*/}
             </div>)
             }
-
         </div>)
 }
 
