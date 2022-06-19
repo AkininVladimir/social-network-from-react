@@ -1,6 +1,6 @@
-const ADD_POST = 'ADD-POST';
-const SELECT_UPDATE_POST = 'SELECT-UPDATE-POST';
-const SET_USERS_PROFILE = 'SET_USERS_PROFILE';
+const ADD_POST = 'ADD_POST';
+const SELECT_UPDATE_POST = 'SELECT_UPDATE_POST';
+const SET_USERS_PROFILE = ' SET_USERS_PROFILE';
 
 let initialState = {
     post: [
@@ -30,13 +30,13 @@ let initialState = {
         }
     ],
     newPostChange: '',
-    profile: null,
+    userProfile: null
 }
 
 const ProfileReducer = (state = initialState, action) => {
 
     switch (action.type) {
-        case 'ADD-POST':
+        case ADD_POST:
             let newPost = {
                 id: 4,
                 name: 'no-name',
@@ -51,21 +51,21 @@ const ProfileReducer = (state = initialState, action) => {
                 post: [...state.post, (newPost)]
 
             }
-        case 'SELECT-UPDATE-POST':
+        case SELECT_UPDATE_POST:
             return {
                 ...state,
                 newPostChange: action.newText
             }
-        case 'SET_USERS_PROFILE':
+        case  SET_USERS_PROFILE:
             return {
-                ...state, profile: action.profile
+                ...state, userProfile: action.profile
             }
         default:
             return state;
     }
 }
 
-export const addPost= () => ({type: ADD_POST});
+export const addPost = () => ({type: ADD_POST});
 export const selectUpdatePost = (text) => ({type: SELECT_UPDATE_POST, newText: text});
-export const setUsersProfile = (profile) => ({type: SET_USERS_PROFILE, profile});
+export const setUsersProfile = (userProfile) => ({type: SET_USERS_PROFILE, profile:userProfile});
 export default ProfileReducer;

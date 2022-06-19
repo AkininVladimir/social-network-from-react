@@ -10,7 +10,7 @@ let initialState = {
     users: [], pageSize: 50, /*количество пользователей на странице, задаем жестко*/
     totalUsersCount: 0, /*поскольку данные должны приходитьс сервера, оставляем по умолчанию 0*/
     currentPage: 1, /*текущая страница для выполнения булинового условия pagesArray.map*/
-    isFetching: false /*создаем булиновое условие прикоторм будет выполняться появление картинки preloader*/
+    isFetching: true /*создаем булиновое условие прикоторм будет выполняться появление картинки preloader*/
 }
 
 const usersReducer = (state = initialState, action) => {
@@ -51,8 +51,9 @@ const usersReducer = (state = initialState, action) => {
             }
         default:
             return state;
-    }
 
+
+    }
 }
 
 export const follow = (userid) => ({type: FOLLOW, userid});

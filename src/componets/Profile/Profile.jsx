@@ -3,13 +3,14 @@ import classes from './Profile.module.css';
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import MyPostContainer from "./MyPost/MyPostContainer";
 
-const Profile = (props) => {
+let Profile = (props) => {
 
     return (
         <div className={classes.ProfileWrapper}>
-            <ProfileInfo propfile={props.profile}/>
+            <ProfileInfo userProfile={props.userProfile}/>
             <MyPostContainer/>
         </div>
     );
 }
+
 export default Profile;

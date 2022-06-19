@@ -1,10 +1,10 @@
 import React from "react";
-import preloader from '../Preloader/Loading.gif';
+import Preloader from './Loader_1.svg';
 
-let PreloaderComponent =(props)=> {
+let PreloaderComponent =()=> {
     return (
         <div>
-            <img src={preloader}/>
+            <img src={Preloader}/>
         </div>
     )
 
