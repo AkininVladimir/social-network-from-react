@@ -10,7 +10,7 @@ let Profile = (props) => {
             <ProfileInfo userProfile={props.userProfile}/>
             <MyPostContainer/>
         </div>
-    );
+    )
 }
 
 export default Profile;
