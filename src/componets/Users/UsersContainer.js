@@ -18,7 +18,8 @@ class UsersAPIContainer extends React.Component {
 
         this.props.setCurrentPage(pageNumber);
         this.props.toggleIsFetching(true);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`)
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`,
+            {withCredentials:true, headers: {"KYE-API": "7b7eb067-37bf-4ce9-a2ff-f859e3ac2961"}})
             .then(response => {
                 this.props.toggleIsFetching(false);
                 this.props.setUsers(response.data.items);
@@ -28,7 +29,8 @@ class UsersAPIContainer extends React.Component {
     componentDidMount() {
 
         this.props.toggleIsFetching(true);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`,
+            {withCredentials:true, headers: {"KYE-API": "7b7eb067-37bf-4ce9-a2ff-f859e3ac2961"}})
             .then(response => {
                 this.props.toggleIsFetching(true);
                 this.props.setUsers(response.data.items);
