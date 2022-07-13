@@ -36,7 +36,7 @@ let Users = (props) => {
                     axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
                         {},
                         {withCredentials: true,
-                            headers: {"KYE-API": "7b7eb067-37bf-4ce9-a2ff-f859e3ac2961"}})
+                            headers: {"KYE-API": "30564202-2cef-41d4-a960-1be18a2519b6"}})
                         .then(response => {
                             if (response.data.resultCode === 0){
                                 props.unfollow(u.id);
@@ -46,7 +46,7 @@ let Users = (props) => {
                     )}>Добавить</button>
                     :<button onClick={()=> (
                         axios.delete (`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
-                            {withCredentials: true, headers: {"KYE-API": "7b7eb067-37bf-4ce9-a2ff-f859e3ac2961"}})
+                            {withCredentials: true, headers: {"KYE-API": "30564202-2cef-41d4-a960-1be18a2519b6"}})
                             .then(response => {
                                 if (response.data.resultCode === 0) {
                                  props.unfollow(u.id);

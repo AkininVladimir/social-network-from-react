@@ -35,7 +35,7 @@ let mapStateToProps = (state) => {
 }
 
 let ProfileMatch = (props) => {
-    let match = useMatch('/profile/:userId')
+    let match = useMatch('/profile/:userId?')
 
     return (
             <ProfileAPIComponent {...props} match={match}/>
