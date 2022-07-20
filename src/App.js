@@ -9,22 +9,21 @@ import UsersContainer from "./componets/Users/UsersContainer";
 import ProfileContainer from "./componets/Profile/ProfileContainer";
 import HeaderContainer from "./componets/Header/HeaderContainer";
 
-const App = (props) => {
+const App = () => {
     return (
         <div className='app-wrapper'>
             <HeaderContainer/>
             <Navbar/>
             <Routes>
-                <Route path='/dialog' element={<DialogContainer store={props.store}/>}/>
-                <Route path='/profile/:userId?' element={<ProfileContainer/>}/>
-                <Route path='/profile' element={<ProfileContainer/>}/>
-                <Route path='/users' element={<UsersContainer/>}/>
-                <Route path='/services' element={<Services/>}/>
-                <Route path='/music' element={<Music/>}/>
-                <Route path='/settings' element={<Settings/>}/>
+                <Route path='/profile/*' element={<ProfileContainer/>}/>
+                <Route path='/dialog/*' element={<DialogContainer/>}/>
+                <Route path='/users/*' element={<UsersContainer/>}/>
+                <Route path='/services/*' element={<Services/>}/>
+                <Route path='/music/*' element={<Music/>}/>
+                <Route path='/settings/*' element={<Settings/>}/>
             </Routes>
         </div>
-    )
+    );
 }
 
 export default App;

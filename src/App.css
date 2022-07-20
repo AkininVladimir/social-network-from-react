@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    color: white;
 }
 
 .app-wrapper {
@@ -32,26 +33,31 @@ ul {
 
 h1 {
     font-size: 23px;
+
 }
 
 h2 {
     font-size: 17px;
+
 }
 
 p {
     font-size: 15px;
+
 }
 
 a {
     text-decoration: none;
     font-size: 15px;
+
 }
 a:hover {
     text-decoration: underline;
+
 }
 
 h1, h2, p, a, span{
-    color: #fff;
+   text-decoration: black;
 }
 .scnd-font-color {
     color: #9099b7;

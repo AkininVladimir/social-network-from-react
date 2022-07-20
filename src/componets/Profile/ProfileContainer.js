@@ -3,46 +3,42 @@ import axios from 'axios';
 import {connect} from 'react-redux';
 import {addPost, selectUpdatePost, setUsersProfile} from '../../redux/ProfileReducer';
 import Profile from './Profile';
-import {useMatch} from 'react-router';
-
+import {useMatch} from "react-router";
 
 
 class ProfileAPIComponent extends React.Component {
 
     componentDidMount() {
 
-        let userId = this.props.match ? this.props.match.params.userId : 2;
-        axios
-            .get(`https://social-network.samuraijs.com/api/1.0/profile` + userId)
-            .then(res => {
-
-                this.props.setUsersProfile(res.data);
-
+        let userId = this.props.match ? this.props.match.params.userId :null;
+        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`, {withCredentials: true})
+            .then(response => {
+                this.props.setUsersProfile(response.data)
             })
     }
 
     render() {
-        return (<div>
-                <Profile {...this.props} userProfile={this.props.userProfile}/>
-            </div>)
+        return (
+            <Profile {...this.props}/>
+        )
     }
 }
 
 let mapStateToProps = (state) => {
     return {
         userProfile: state.ProfilePage.userProfile,
+        /*currentUserID: state.Auth.id*/
     }
 }
 
 let ProfileMatch = (props) => {
-    let match = useMatch('/profile/:userId?')
+    let match = useMatch("/profile/:userId")
 
     return (
-            <ProfileAPIComponent {...props} match={match}/>
+        <ProfileAPIComponent {...props} match={match}/>
     )
 }
 
-
-let ProfileContainer = connect(mapStateToProps, {setUsersProfile, selectUpdatePost, addPost})(ProfileMatch);
+const ProfileContainer = connect(mapStateToProps, {setUsersProfile, selectUpdatePost, addPost})(ProfileMatch);
 
 export default ProfileContainer;

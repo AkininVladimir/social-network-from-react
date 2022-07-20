@@ -1,25 +1,51 @@
 import axios from "axios";
 
-//*Создаем вспомогательный метод axios для сокращения кода помещаем туда дублирующиеся переменные иметоды */
-const instance = axios.create({
-    baseURL:'https://social-network.samuraijs.com/api/1.0/',
-    withCredentials: true,
-    // headers: {'KYE-API': 'a80070e0-15b2-43f2-8bce-2fd3fce0aa6c'} /*пока не работает, я не оплатил доступ на сервер*/
 
-})
-//упрощаем функциональную логику getUsers до объекта usersAPI с методом getUsers
+const instance = axios.create({
+    baseURL: 'https://social-network.samuraijs.com/api/1.0/',
+    withCredentials: true,
+    headers: {"API-KEY": "5148e53d-daeb-4032-9292-71ff95c436f9"}
+
+});
+
 
 export const usersAPI = {
-    getUsers(currentPage, pageSize) {
+    getUsers: (currentPage =10, pageSize =1) => {
         return (
             instance.get(`users?page=${currentPage}&count=${pageSize}`)
                 .then(response => {
-                    return (
-                        response.data)
+                    return response.data;
                 })
 
-        )}
-};
+        )
+    },
+    authMe: () => {
+        return (
+            instance.get('/auth/me')
+                .then(response => {
+                    return response.data;
+                })
+        )
+    },
+    follow: (id) => {
+        return (
+            instance.post(`follow/${id}`)
+                .then(responce => {
+                    return responce.data;
+                })
+        )
+    },
+
+    unfollow: (id) => {
+        return (
+            instance.delete(`follow/${id}`)
+                .then(responce => {
+                    return responce.data;
+                })
+        )
+    },
+
+}
 
 
 

@@ -1,9 +1,9 @@
 import React from 'react';
 import classes from './Header.module.css';
-import {NavLink} from "react-router-dom";
-
+import AuthContainer from "../Auth/AuthContainer";
 
 const Header = (props) => {
+
     return (
         <header className={classes.HeaderWrapper}>
             <ul className={classes.header_menu}>
@@ -25,16 +25,7 @@ const Header = (props) => {
                         className={classes.icon}></span>Избранные</a>
                 </li>
             </ul>
-            <div className={classes.profile_menu}>
-                {props.isAuth ? props.login : <div className={classes.header_menu_tab}>
-                    <NavLink to={'/login'} className={classes.icon}>Login</NavLink>
-                </div> }
-
-                <div className={classes.small_profile_picture}>
-                    <img alt="ava"
-                         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2117LyfY1lh1QN1cXxJar1CdroglBWIWyww&usqp=CAU"/>
-                </div>
-            </div>
+                <AuthContainer/>
         </header>
     )
 
