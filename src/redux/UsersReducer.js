@@ -11,7 +11,7 @@ const TOGGLE_IS_FOLLOWING_PROGRESS = 'TOGGLE_IS_FOLLOWING_PROGRESS';
 let initialState = {
     users: [], pageSize: 10,
     totalUsersCount: 0,
-    currentPage: 3,
+    currentPage: 1,
     isFetching: false,
     followingInProgress: []
 }
@@ -93,7 +93,6 @@ export const getUsers = (currentPage, pageSize) => {
     }
 
 }
-
 export const follow = (userId) => {
     return (dispatch) => {
         dispatch(toggleIsFollowingProgress(true, userId))
@@ -120,6 +119,6 @@ export const unfollow = (userId) => {
             })
     }
 }
-            /*урок redux-thunk */
+/*урок redux-thunk */
 
-            export default usersReducer;
+export default usersReducer;

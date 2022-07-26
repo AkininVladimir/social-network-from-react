@@ -1,21 +1,13 @@
 import React from "react";
-import {usersAPI} from "../API/API";
 import {connect} from "react-redux";
-import {setAuthUserData} from "../../redux/AuthReducer";
 import AuthComponent from "./Auth";
+import {getAuthUserData} from "../../redux/AuthReducer";
 
 
 class AuthContainer extends React.Component {
     componentDidMount() {
+    this.props.getAuthUserData();
 
-        usersAPI.authMe()
-            .then(data => {
-                if (data.resultCode === 0) {
-                    // let {id, email, login} = response.data.data;
-                    this.props.setAuthUserData(data.data);
-                }
-
-            });
     }
 
     render() {
@@ -35,4 +27,4 @@ let mapStateToProps = (state) => {
         })
 }
 
-export default connect(mapStateToProps, {setAuthUserData})(AuthContainer);
+export default connect(mapStateToProps, {getAuthUserData})(AuthContainer);
