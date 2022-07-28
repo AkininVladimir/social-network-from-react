@@ -7,25 +7,16 @@ import {connect} from "react-redux";
 
 let mapStateToProps = (state) => {
     return {
+        isAuth:state.Auth.isAuth,
         dialog: state.DialogPage.dialog,
         say: state.DialogPage.say,
         addSayMessage: state.DialogPage.addSayMessage
     }
 }
 
-let mapDispatchToProps = (dispatch) => {
-    return {
-        selectNewMessageText: (text) => {
-            let action = newMessageTextActionCreator(text);
-            dispatch(action);
-        },
-        pushMessageText: () => {
-            dispatch(addMessageTextActionCreator())
-        }
-    }
-}
 
-const DialogContainer = connect(mapStateToProps, mapDispatchToProps)(Dialog);
+
+const DialogContainer = connect(mapStateToProps, {newMessageTextActionCreator,addMessageTextActionCreator})(Dialog);
 
 export default DialogContainer;
 
@@ -55,4 +46,15 @@ export default DialogContainer;
             }
         </storeContext.Consumer>
     )
+}*/
+/*let mapDispatchToProps = (dispatch) => {
+    return {
+        selectNewMessageText: (text) => {
+            let action = newMessageTextActionCreator(text);
+            dispatch(action);
+        },
+        pushMessageText: () => {
+            dispatch(addMessageTextActionCreator())
+        }
+    }
 }*/

@@ -25,7 +25,8 @@ class ProfileAPIComponent extends React.Component {
 let mapStateToProps = (state) => {
     return {
         userProfile: state.ProfilePage.userProfile,
-        currentUserID: state.Auth.id
+        currentUserID: state.Auth.id,
+        isAuth: state.Auth.isAuth
     }
 }
 
