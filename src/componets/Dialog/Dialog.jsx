@@ -3,12 +3,10 @@ import classes from './Dialog.module.css';
 import DialogItems from "./DialogItems/DialogItems";
 import MessageItems from "./MessageItems/MessageItems";
 import HeaderDialog from "./HeaderDialog/HeaderDialog";
-import {Navigate} from "react-router-dom";
+
 
 
 let Dialog = (props) => {
-
-
 
     let dialogElements = props.dialog.map(d => <DialogItems key={d.id} name={d.name} id={d.id}/>);
 
@@ -24,7 +22,7 @@ let Dialog = (props) => {
         let text = messageElement.current.value;
         props.selectNewMessageText(text);
     }
-    if(props.isAuth === false){return <Navigate to={'/login'}/>}
+
     return (
         <div className={classes.Dialog_wrapper}>
             <HeaderDialog/>

@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import {addPost, getUsersProfile, selectUpdatePost} from '../../redux/ProfileReducer';
 import Profile from './Profile';
 import {useMatch} from "react-router";
-
+import {withAuthRedirect} from "../HOC/withAuthRedirect";
 
 
 class ProfileAPIComponent extends React.Component {
@@ -22,11 +22,12 @@ class ProfileAPIComponent extends React.Component {
     }
 }
 
+let AuthRedirectComponent = withAuthRedirect(ProfileAPIComponent)
+
 let mapStateToProps = (state) => {
     return {
         userProfile: state.ProfilePage.userProfile,
         currentUserID: state.Auth.id,
-        isAuth: state.Auth.isAuth
     }
 }
 
@@ -34,7 +35,7 @@ let ProfileMatch = (props) => {
     let match = useMatch("/profile/:userId")
 
     return (
-        <ProfileAPIComponent {...props} match={match}/>
+        <AuthRedirectComponent {...props} match={match}/>
     )
 }
 

@@ -2,21 +2,23 @@ import React from 'react';
 import {addMessageTextActionCreator, newMessageTextActionCreator} from "../../redux/DialogsReducer";
 import Dialog from "./Dialog";
 import {connect} from "react-redux";
+import {withAuthRedirect} from "../HOC/withAuthRedirect";
 
 
+let AuthRedirectComponent = withAuthRedirect(Dialog)
 
 let mapStateToProps = (state) => {
     return {
-        isAuth:state.Auth.isAuth,
         dialog: state.DialogPage.dialog,
         say: state.DialogPage.say,
         addSayMessage: state.DialogPage.addSayMessage
     }
 }
 
-
-
-const DialogContainer = connect(mapStateToProps, {newMessageTextActionCreator,addMessageTextActionCreator})(Dialog);
+const DialogContainer = connect(mapStateToProps, {
+    newMessageTextActionCreator,
+    addMessageTextActionCreator
+})(AuthRedirectComponent);
 
 export default DialogContainer;
 
