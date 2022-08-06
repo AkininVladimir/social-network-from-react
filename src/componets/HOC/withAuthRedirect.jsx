@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import {Navigate} from "react-router-dom";
 import {connect} from "react-redux";
+import {useMatch} from "react-router";
 
 export const withAuthRedirect = (Component) => {
 
@@ -21,7 +22,17 @@ export const withAuthRedirect = (Component) => {
         }
     }
 
-  const  ConnectedAuthRedirectComponent = connect(mapStateToPropsForRedirect)(RedirectComponent);
+    const ConnectedAuthRedirectComponent = connect(mapStateToPropsForRedirect)(RedirectComponent);
 
     return ConnectedAuthRedirectComponent;
+}
+export const withRouter = (Component) => {
+    let RouterComponent = (props) => {
+        let match = useMatch("/profile/:userId")
+
+        return (
+            <Component {...props} match={match}/>
+        )
+    }
+    return RouterComponent
 }

@@ -3,9 +3,7 @@ import {addMessageTextActionCreator, newMessageTextActionCreator} from "../../re
 import Dialog from "./Dialog";
 import {connect} from "react-redux";
 import {withAuthRedirect} from "../HOC/withAuthRedirect";
-
-
-let AuthRedirectComponent = withAuthRedirect(Dialog)
+import {compose} from "redux";
 
 let mapStateToProps = (state) => {
     return {
@@ -14,49 +12,10 @@ let mapStateToProps = (state) => {
         addSayMessage: state.DialogPage.addSayMessage
     }
 }
-
-const DialogContainer = connect(mapStateToProps, {
-    newMessageTextActionCreator,
-    addMessageTextActionCreator
-})(AuthRedirectComponent);
-
-export default DialogContainer;
-
-/*let DialogContainer = () => {
-
-    return (
-        <storeContext.Consumer>
-            {(store) => {
-                let state = store.getState();
-
-                let pushMessageText = () => {
-                    store.dispatch(addMessageTextActionCreator());
-                }
-
-                let newMessageText = (text) => {
-                    let action = newMessageTextActionCreator(text);
-                    store.dispatch(action);
-                }
-
-                return <Dialog selectNewMessageText={newMessageText}
-                               pushMessageText={pushMessageText}
-                               dialog={store.getState().DialogPage.dialog}
-                               say={store.getState().DialogPage.say}
-                               addSayMessage={store.getState().DialogPage.addSayMessage}/>
-            }
-
-            }
-        </storeContext.Consumer>
-    )
-}*/
-/*let mapDispatchToProps = (dispatch) => {
-    return {
-        selectNewMessageText: (text) => {
-            let action = newMessageTextActionCreator(text);
-            dispatch(action);
-        },
-        pushMessageText: () => {
-            dispatch(addMessageTextActionCreator())
-        }
-    }
-}*/
+export default compose(
+    connect(mapStateToProps, {
+        newMessageTextActionCreator,
+        addMessageTextActionCreator
+    }),
+    withAuthRedirect
+)(Dialog)
