@@ -20,30 +20,8 @@ let ProfileInfo = (props) => {
                 <p>{props.userProfile.aboutMe == null ? "Обо мне:" : "Обо мне:" + props.userProfile.aboutMe}</p>
             </div>
 
-            <div>
-                <img className={classes.ProfilePicture} alt="picture"
-                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwvdY18l2WSnl9JsRSQPn7dV7eCKxyIX72mQ&usqp=CAU"/>
-                <h1 className={classes.UserName}>Просто Девушка</h1>
-                <div className={classes.ProfileDescription}>
-                    <p>Lorem ipsum dolor sit amet consectetuer adipiscing</p>
-                </div>
-            </div>
-
-
-            <div className={classes.ProfileOptions}>
-                <div className={classes.Comments}><a href="#40"><p><span
-                    className={`${classes.IconComments}' '${classes.ScndFontColor}`}></span>23</p></a>
-                </div>
-                <div className={classes.Views}><a href="#41"><p><span
-                    className={`${classes.IconViews}${classes.ScndFontColor}`}></span>841</p></a>
-                </div>
-                <div className={classes.Likes}><a href="#42"><p><span
-                    className={`${classes.IconLikes}' '${classes.ScndFontColor}`}></span>49</p></a>
-                </div>
-
-            </div>
-
-        </div>)
+        </div>
+    )
 }
 
 export default ProfileInfo;
