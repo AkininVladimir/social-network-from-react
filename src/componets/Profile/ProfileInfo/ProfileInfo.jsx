@@ -14,10 +14,10 @@ let ProfileInfo = (props) => {
         <div className={classes.ProfileBlock}>
 
             <img className={classes.ProfilePicture}
-                 src={props.userProfile.photos.small == null ? user_photo : props.userProfile.photos.large}/>
+                 src={props.userProfile.photos.small === null ? user_photo : props.userProfile.photos.large}/>
             <h1 className={classes.UserName}>{props.userProfile.fullName}</h1>
             <div className={classes.ProfileDescription}>
-                <p>{props.userProfile.aboutMe == null ? "Обо мне:" : "Обо мне:" + props.userProfile.aboutMe}</p>
+                <p>{props.userProfile.aboutMe === null ? "Обо мне:" : "Обо мне:" + props.userProfile.aboutMe}</p>
             </div>
 
         </div>

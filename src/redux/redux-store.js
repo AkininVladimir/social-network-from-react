@@ -11,6 +11,7 @@ let reducers= combineReducers(
         DialogPage: DialogsReducer,
         UsersPage: UsersReducer,
         Auth: AuthReducer,
+
     })
 
 let store = createStore(reducers, applyMiddleware(thunkMiddleware))

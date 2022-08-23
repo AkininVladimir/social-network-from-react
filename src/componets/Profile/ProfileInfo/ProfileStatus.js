@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "./ProfileInfo.module.css";
+
 
 class ProfileStatus extends React.Component {
 
@@ -22,24 +22,25 @@ class ProfileStatus extends React.Component {
         })
     };
 
-    render() {
-/*
-        if (this.props.status === null) {
-          return  <div>
-                <p className={classes.ProfileDescription}>"Статус: не указан"</p>
-            </div>
+    componentDidUpdate(prevProps, prevState) {
+        if (prevProps.status !== this.props.status) {
+            this.setState({status: this.props.status});
+        }
+    }
 
-        } else {*/
-            return (
-                <div>
-                    {!this.state.editeMode && <div>
-                        <span onDoubleClick={this.activeEditeMode}>{this.props.status|| "нет статуса"}</span>
-                    </div>}
-                    {this.state.editeMode && <div>
-                        <input onChange={this.onChangeUpdateStatus} autoFocus={true} onBlur={this.deActiveEditeMode}
-                               value={this.state.status} type="text"/>
-                    </div>}
-                    {/* <div>
+
+    render() {
+
+        return (
+            <div>
+                {!this.state.editeMode && <div>
+                    <span onDoubleClick={this.activeEditeMode}>{this.props.status || "нет статуса"}</span>
+                </div>}
+                {this.state.editeMode && <div>
+                    <input onChange={this.onChangeUpdateStatus} autoFocus={true} onBlur={this.deActiveEditeMode}
+                           value={this.state.status} type="text"/>
+                </div>}
+                {/* <div>
                     <img className={classes.ProfilePicture} alt="picture"
                          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwvdY18l2WSnl9JsRSQPn7dV7eCKxyIX72mQ&usqp=CAU"/>
                     <h1 className={classes.UserName}>Просто Девушка</h1>
@@ -57,8 +58,8 @@ class ProfileStatus extends React.Component {
 
                 </div>*/}
 
-                </div>)
-        }
+            </div>)
+    }
 
 }
 

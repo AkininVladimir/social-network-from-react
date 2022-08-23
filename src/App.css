@@ -3,8 +3,10 @@
     padding: 0;
     box-sizing: border-box;
     color: white;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
-
 .app-wrapper {
     display: grid;
     gap: 20px;
@@ -13,12 +15,6 @@
     "nav-bar cont cont cont"
     "nav-bar cont cont cont";
 
-}
-
-* {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
 }
 
 body {
@@ -73,21 +69,21 @@ input[type=text]{
     margin-bottom: 20px;
     padding-left: 45px;
     background: #50597b;
-    color: #fff;
+    color: black;
     border: solid 1px #1f253d;
     border-radius: 5px;
 }
 input[type=text]::-webkit-input-placeholder { /* WebKit browsers */
-    color: #fff;
+    color: black;
 }
 input[type=text]:-moz-input-placeholder { /* Mozilla Firefox 4 to 18 */
     color: #fff;
 }
 input[type=text]::-moz-input-placeholder { /* Mozilla Firefox 19+ */
-    color: #fff;
+    color: black;
 }
 input[type=text]:-ms-input-placeholder { /* Internet Explorer 10+ */
-    color: #fff;
+    color: black;
 }
 input[type=text]:focus {
     outline: none; /* removes the default orange border when focus */

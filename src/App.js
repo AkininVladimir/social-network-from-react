@@ -10,11 +10,9 @@ import ProfileContainer from "./componets/Profile/ProfileContainer";
 import HeaderContainer from "./componets/Header/HeaderContainer";
 import LoginPage from "./componets/Login/Login";
 
-
-
 const App = () => {
     return (
-        <div className='app-wrapper'>
+        <div className={"app-wrapper"}>
             <HeaderContainer/>
             <Navbar/>
             <Routes>

@@ -32,6 +32,7 @@ class ProfileAPIComponent extends React.Component {
 /*let AuthRedirectComponent = withAuthRedirect(ProfileAPIComponent)*/
 
 let mapStateToProps = (state) => {
+
     return {
         userProfile: state.ProfilePage.userProfile,
         currentUserID: state.Auth.id,
