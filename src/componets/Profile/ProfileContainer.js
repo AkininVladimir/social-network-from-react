@@ -29,8 +29,6 @@ class ProfileAPIComponent extends React.Component {
     }
 }
 
-/*let AuthRedirectComponent = withAuthRedirect(ProfileAPIComponent)*/
-
 let mapStateToProps = (state) => {
 
     return {
@@ -45,15 +43,4 @@ export default compose(
     withRouter,
     withAuthRedirect)(ProfileAPIComponent);
 
-/*let ProfileMatch = (props) => {
-    let match = useMatch("/profile/:userId")
 
-    return (
-        <AuthRedirectComponent {...props} match={match}/>
-    )
-}*/
-
-/*const ProfileContainer = connect(mapStateToProps, {getUsersProfile, selectUpdatePost, addPost})(ProfileMatch);*/
-
-/*
- ProfileContainer;*/
