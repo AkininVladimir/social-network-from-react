@@ -14,7 +14,9 @@ export const withAuthRedirect = (Component) => {
 
     class RedirectComponent extends React.Component {
         render() {
-            if (!this.props.isAuth) {<Navigate to={'/login'}/>}
+            if (!this.props.isAuth) {
+                <Navigate to={"/login"}/>
+            }
 
             return (
                 <Component{...this.props}/>
@@ -26,6 +28,9 @@ export const withAuthRedirect = (Component) => {
 
     return ConnectedAuthRedirectComponent;
 }
+
+
+
 export const withRouter = (Component) => {
     let RouterComponent = (props) => {
         let match = useMatch("/profile/:userId")
@@ -36,3 +41,6 @@ export const withRouter = (Component) => {
     }
     return RouterComponent
 }
+
+
+

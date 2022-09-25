@@ -1,33 +1,43 @@
 import React from "react";
 import {useForm} from "react-hook-form";
 import classes from'./Login.modules.css'
+import {connect} from "react-redux";
+import {login} from "../../redux/AuthReducer";
+import {Navigate} from "react-router-dom";
 
 
-const LoginPage=()=>{
+
+const LoginPage=(props)=>{
+
+
 
    const {
        register,
         formState:{errors, isValid},
-       handleSubmit,
-       reset,
+       handleSubmit, reset,
    } = useForm({
        mode:"onBlur"
    });
 
    const onSubmit=(data)=>{
-       alert(JSON.stringify(data));
+       props.login(data.email, data.password);
        reset();
     }
 
+    if (props.isAuth) {
+        return (
+            <Navigate to={"/profile"}/>
+        )
+    }
     return (
         <div>
-            <h1 className={classes.lable} htmlFor={"login"}>Войти</h1>
+            <h1 className={classes.lable}>Войти</h1>
             <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
                 <label className={classes.lable}>
-                   Имя пользователя:
+                   Ваш email:
                     <input
                            className={classes.input}
-                           {...register("Login",{
+                           {...register("email",{
                            required: "Поле обязательно для заполнения",
                            /*minLength: {
                             value: 5,
@@ -36,7 +46,7 @@ const LoginPage=()=>{
                     })}
                     />
                 </label>
-                <div>{errors?.Login&&<p>{errors?.Login?.message || "Error"}</p>}</div>
+                <div>{errors?.email&&<p>{errors?.email?.message || "Error"}</p>}</div>
                 <label className={classes.lable}>
                    Ваш пароль:
                     <input
@@ -61,8 +71,11 @@ const LoginPage=()=>{
     )
 }
 
+const mapStateToProps = (state)=>({
+    isAuth: state.Auth.isAuth
+})
 
-export default LoginPage;
+export default connect(mapStateToProps, {login})(LoginPage);
 
 /*
 const LoginPage = (props) => {
