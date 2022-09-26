@@ -15,7 +15,7 @@ const AuthReducer = (state = initialState, action) => {
       return {
         ...state,
         ...action.data,
-        isAuth: true,
+
       }
 
     default:
@@ -53,7 +53,6 @@ export const logout = () => (dispatch) => {
   authMe.logout()
     .then(response => {
       if (response.data.resultCode === 0) {
-
         dispatch(setAuthUserData(null, null, null))
       }
 
