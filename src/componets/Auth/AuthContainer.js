@@ -1,14 +1,10 @@
 import React from "react";
 import {connect} from "react-redux";
 import AuthComponent from "./Auth";
-import {getAuthUserData, logout} from "../../redux/AuthReducer";
+import {logout} from "../../redux/AuthReducer";
 
 
 class AuthContainer extends React.Component {
-    componentDidMount() {
-    this.props.getAuthUserData();
-
-    }
 
     render() {
 
@@ -27,4 +23,4 @@ let mapStateToProps = (state) => {
         })
 }
 
-export default connect(mapStateToProps, {getAuthUserData, logout})(AuthContainer);
+export default connect(mapStateToProps, {logout})(AuthContainer);

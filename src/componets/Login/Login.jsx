@@ -9,8 +9,6 @@ import {Navigate} from "react-router-dom";
 
 const LoginPage=(props)=>{
 
-
-
    const {
        register,
         formState:{errors, isValid},

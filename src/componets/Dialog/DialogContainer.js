@@ -17,5 +17,4 @@ export default compose(
         newMessageTextActionCreator,
         addMessageTextActionCreator
     }),
-    withAuthRedirect
-)(Dialog)
+    withAuthRedirect)(Dialog)

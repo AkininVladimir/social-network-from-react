@@ -1,13 +1,7 @@
 import React from 'react';
 
 import {connect} from 'react-redux';
-import {
-    addPost,
-    getUsersProfile,
-    getUserStatus,
-    selectUpdatePost,
-    updateUserStatus
-} from '../../redux/ProfileReducer';
+import {addPost, getUsersProfile, getUserStatus, selectUpdatePost, updateUserStatus} from '../../redux/ProfileReducer';
 import Profile from './Profile';
 import {withAuthRedirect, withRouter} from "../HOC/withAuthRedirect";
 import {compose} from "redux";
@@ -23,7 +17,8 @@ class ProfileAPIComponent extends React.Component {
     }
 
     render() {
-        return (
+
+      return (
             <Profile {...this.props} status={this.props.status} updateStatus={this.props.updateUserStatus}/>
         )
     }
