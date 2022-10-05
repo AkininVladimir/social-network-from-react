@@ -1,25 +1,24 @@
 import React from "react";
 import {useForm} from "react-hook-form";
-import classes from'./Login.modules.css'
+import classes from './Login.modules.css'
 import {connect} from "react-redux";
 import {login} from "../../redux/AuthReducer";
 import {Navigate} from "react-router-dom";
 
 
+const LoginPage = (props) => {
 
-const LoginPage=(props)=>{
+    const {
+        register,
+        formState: {errors, isValid},
+        handleSubmit, reset,
+    } = useForm({
+        mode: "onBlur"
+    });
 
-   const {
-       register,
-        formState:{errors, isValid},
-       handleSubmit, reset,
-   } = useForm({
-       mode:"onBlur"
-   });
-
-   const onSubmit=(data)=>{
-       props.login(data.email, data.password);
-       reset();
+    const onSubmit = (data) => {
+        props.login(data.email, data.password);
+        reset();
     }
 
     if (props.isAuth) {
@@ -32,33 +31,33 @@ const LoginPage=(props)=>{
             <h1 className={classes.lable}>Войти</h1>
             <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
                 <label className={classes.lable}>
-                   Ваш email:
+                    Ваш email:
                     <input
-                           className={classes.input}
-                           {...register("email",{
-                           required: "Поле обязательно для заполнения",
-                           /*minLength: {
-                            value: 5,
-                               message: "Не более 5 символов"
-                           }*/
-                    })}
+                        className={classes.input}
+                        {...register("email", {
+                            required: "Поле обязательно для заполнения",
+                            /*minLength: {
+                             value: 5,
+                                message: "Не более 5 символов"
+                            }*/
+                        })}
                     />
                 </label>
-                <div>{errors?.email&&<p>{errors?.email?.message || "Error"}</p>}</div>
+                <div>{errors?.email && <p>{errors?.email?.message || "Error"}</p>}</div>
                 <label className={classes.lable}>
-                   Ваш пароль:
+                    Ваш пароль:
                     <input
-                           className={classes.input}
-                           {...register("password",{
-                           required: "Поле обязательно для заполнения",
-                           minLength: {
+                        className={classes.input}
+                        {...register("password", {
+                            required: "Поле обязательно для заполнения",
+                            minLength: {
                             value: 5,
-                               message: "Не более 5 символов"
-                           }
-                    })}
+                            message: "Не более 5 символов"
+                            }
+                        })}
                     />
                 </label>
-                <div>{errors?.password&&<p>{errors?.password?.message || "Error"}</p>}</div>
+                <div>{errors?.password && <p>{errors?.password?.message || "Error"}</p>}</div>
                 <input type={"submit"}
                        disabled={!isValid}
                        onClick={handleSubmit}/>
@@ -69,7 +68,7 @@ const LoginPage=(props)=>{
     )
 }
 
-const mapStateToProps = (state)=>({
+const mapStateToProps = (state) => ({
     isAuth: state.Auth.isAuth
 })
 

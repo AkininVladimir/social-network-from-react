@@ -46,7 +46,6 @@ class App extends React.Component {
   }
 }
 
-debugger;
 const mapStateToProps = (state) => ({
   initialization: state.App.initialization
 })
